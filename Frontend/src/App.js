@@ -18,7 +18,7 @@ import Headphones from './Pages/Banners/BoatHeadphones.jsx';
 import axios from 'axios';
 import { AuthProvider } from './ContextAPI/authContext.jsx';
 import men_banner from './ContextAPI/assets/MEN_BANNER.jpg'
-import API_BASE_URL from '../config.js';
+import API_BASE_URL from './config.js';
 function App() {
   const [products, setProducts] = useState([]);
 
@@ -35,8 +35,6 @@ function App() {
 
     fetchProducts();
   }, []);
-
-  //let men_banner = "https://i.pinimg.com/736x/bc/ec/46/bcec46649a0f62eaf77aad7681aced97.jpg"
   let women_banner = "https://www.samyakk.com/blog/wp-content/uploads/2023/03/MAIN-BANNER-lehenga.jpg"
   let kids_banner = "https://cdn.vectorstock.com/i/500p/65/74/ad-banner-design-for-kids-clothes-store-promo-vector-43676574.jpg"
   let trousersUrl = "https://www.artless-store.com/cdn/shop/collections/e63e4d03adef96f99de73b60f9e2ea50_1376x416_a34eea3d-a267-4a29-9085-9c2097e4c8f3.jpg?v=1704529624"
