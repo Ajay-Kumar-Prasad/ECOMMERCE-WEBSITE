@@ -18,6 +18,10 @@ import Headphones from './Pages/Banners/BoatHeadphones.jsx';
 import axios from 'axios';
 import { AuthProvider } from './ContextAPI/authContext.jsx';
 import men_banner from './ContextAPI/assets/MEN_BANNER.jpg'
+<<<<<<< HEAD
+=======
+import API_BASE_URL from '../config.js';
+>>>>>>> 547c94e (File added)
 function App() {
   const [products, setProducts] = useState([]);
 
