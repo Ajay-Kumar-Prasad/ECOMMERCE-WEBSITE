@@ -1,5 +1,6 @@
+require('dotenv').config(); 
 const express = require("express");
-const port = 8080;
+const port = process.env.PORT;
 const app = express();
 const mongoose = require('mongoose');
 const path = require('path');
@@ -17,7 +18,7 @@ main()
     })
     .catch(err => console.log(err));
 async function main() {
-  await mongoose.connect("mongodb+srv://ajayk10440:ngqLGckQzlGLM4em@cluster0.eo2ep.mongodb.net/e-commerce");
+  await mongoose.connect(process.env.MONGO_URL);
 }
 
 app.get('/api/products', async (req, res) => {
