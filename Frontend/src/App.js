@@ -18,6 +18,7 @@ import Headphones from './Pages/Banners/BoatHeadphones.jsx';
 import axios from 'axios';
 import { AuthProvider } from './ContextAPI/authContext.jsx';
 import men_banner from './ContextAPI/assets/MEN_BANNER.jpg'
+const API_BASE_URL = "https://your-backend-service.onrender.com";
 function App() {
   const [products, setProducts] = useState([]);
 
@@ -25,7 +26,7 @@ function App() {
     // Fetch products from backend
     const fetchProducts = async () => {
       try {
-        const response = await axios.get('http://localhost:5000/api/products');
+        const response = await axios.get(`${API_BASE_URL}/api/products`);
         setProducts(response.data);
       } catch (err) {
         console.error('Error fetching products:', err);
@@ -85,6 +86,6 @@ function App() {
 
   );
 }
-
+export default API_BASE_URL;
 export default App;
 
