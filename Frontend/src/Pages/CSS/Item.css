@@ -1,0 +1,16 @@
+.card-item{
+    border: none !important;
+    padding: 2rem;
+}
+.card-img-top{
+    height: 10rem !important;
+    width: 8rem !important;
+    /* object-fit: cover; */
+    transition: transform .2s;
+}
+.card-img-top:hover{
+    transform: scale(1.2);
+}
+.card-txt{
+    font-size: 0.9rem !important;
+}
