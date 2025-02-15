@@ -18,7 +18,6 @@ import Headphones from './Pages/Banners/BoatHeadphones.jsx';
 import axios from 'axios';
 import { AuthProvider } from './ContextAPI/authContext.jsx';
 import men_banner from './ContextAPI/assets/MEN_BANNER.jpg'
-const API_BASE_URL = "https://your-backend-service.onrender.com";
 function App() {
   const [products, setProducts] = useState([]);
 
@@ -86,6 +85,5 @@ function App() {
 
   );
 }
-export default API_BASE_URL;
 export default App;
 
