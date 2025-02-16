@@ -10,8 +10,7 @@ app.use(express.json());
 app.use(cors());
 const Product = require('./models/Product');
 app.use(express.json());
-app.use(express.static(path.join(__dirname, '../E-commerce-Website/build')));
-// Database connection with MongoDB
+app.use(express.static(path.join(__dirname, '../Frontend/build')));
 main()
     .then(()=>{
         console.log("connected to database");
