@@ -5,19 +5,19 @@ import ShowProduct from "./ShowProduct";
 import ShowProductDetails from "./ShowProductDetails";
 import RelatedProduct from "./RelatedProducts" 
 export default function Product() {
-  const { all_products, shirts_data } = useContext(ShopContext);
+  const { all_products, men_data } = useContext(ShopContext);
   const { productId } = useParams();
   const [product, setProduct] = useState(null);
 
   useEffect(() => {
     const foundProduct = findProductById(Number(productId));
     setProduct(foundProduct); 
-  }, [all_products, shirts_data, productId]);
+  }, [all_products, men_data, productId]);
 
   const findProductById = (id) => {
     let foundProduct = all_products.find((prod) => prod.id === id);
     if (!foundProduct) {
-      foundProduct = shirts_data.find((prod) => prod.id === id);
+      foundProduct = men_data.find((prod) => prod.id === id);
     }
     return foundProduct;
   };

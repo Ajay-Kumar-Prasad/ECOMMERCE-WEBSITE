@@ -75,64 +75,6 @@ let all_products = [
         rating:3.7
     },
     {
-        id:6,
-        name:"Sanvi Fashion Women P..",
-        full_name:"Women Printed Viscose Rayon Straight Kurta(Blue)",
-        brand_name:"Sanvi Fashion",
-        category:"women",
-        image:"https://rukminim2.flixcart.com/image/612/612/xif0q/kurta/z/o/e/s-trishul-01-sanvi-fashion-original-imahfu37gzxrsag4.jpeg?q=70",
-        new_price:240,
-        old_price:1399,
-        discount:"82% off",
-        rating:3.9
-    },
-    {
-        id:7,
-        name:"Selvia Women Printed..",
-        full_name:"Women Printed Viscose Rayon Straight Kurta(Blue)",
-        brand_name:"Sanvi Fashion",
-        category:"women",
-        image:"https://rukminim2.flixcart.com/image/612/612/xif0q/blazer/q/u/7/l-658tk11404-selvia-original-imahfs6grhfvakgt.jpeg?q=70",
-        new_price:919,
-        old_price:3063,
-        discount:"69% off",
-        rating:3.9
-    },
-    {
-        id:8,
-        name:"BLACK SCISSOR Women",
-        full_name:"Women Printed Viscose Rayon Straight Kurta(Blue)",
-        brand_name:"Sanvi Fashion",
-        category:"women",
-        image:"https://rukminim2.flixcart.com/image/612/612/xif0q/ethnic-set/d/i/e/m-bs-3114-black-scissor-original-imagxffqhphptzhy.jpeg?q=70",
-        new_price:909,
-        old_price:6363,
-        discount:"85% off"
-    },
-    {
-        id:9,
-        name:"KASHIAN Women..",
-        full_name:"Women Printed Viscose Rayon Straight Kurta(Blue)",
-        brand_name:"Sanvi Fashion",
-        category:"women",
-        image:"https://rukminim2.flixcart.com/image/612/612/xif0q/jean/2/k/g/32-j-1320-blue-kashian-original-imagz9cwk22hhgxv.jpeg?q=70",
-        new_price:455,
-        old_price:1499,
-        discount:"69% off"
-    },
-    {
-        id:10,
-        name:"Leotude Women Typogr..",
-        full_name:"Women Printed Viscose Rayon Straight Kurta(Blue)",
-        brand_name:"Sanvi Fashion",
-        category:"women",
-        image:"https://rukminim2.flixcart.com/image/612/612/xif0q/t-shirt/d/w/e/3xl-grl-fs49-purpl-dragonn-leotude-original-imaghgpurfugegzb.jpeg?q=70",
-        new_price:299,
-        old_price:1099,
-        discount:"72% off",
-        rating:4.5
-    },
-    {
         id:11,
         name:"Men Regular Fit..",
         full_name:"Men Regular Fit Self Design Spread Collar Casual Shirt",
@@ -178,7 +120,7 @@ let all_products = [
         rating:3.8
     },
     {
-        id:14,
+        id:104,
         name:"Synthetic Leather Lightw..",
         full_name:"Synthetic Leather Sneakers For Men (White)",
         brand_name:"aadi",
@@ -222,7 +164,7 @@ let all_products = [
         rating:undefined
     },
     {
-        id:70,
+        id:99,
         name:"Apple iPhone 15 (Black, 128 GB)",
         full_name:"Apple iPhone 15 (Black, 128 GB)",
         brand_name:"APPLE",
@@ -237,7 +179,7 @@ let all_products = [
         rating:4.6
     },
     {
-        id:71,
+        id:100,
         name:"Motorola Edge 50 Pro 5G (Black Beauty)",
         full_name:"Motorola Edge 50 Pro 5G with 68W Charger(Black Beauty, 256 GB)(8 GB RAM)",
         brand_name:"MOTOROLA",
@@ -252,7 +194,7 @@ let all_products = [
         rating:4.4
     },
     {
-        id:72,
+        id:101,
         name:"vivo X Fold3 Pro(Celestial Black)",
         full_name:"vivo X Fold3 Pro(Celestial Black,512 GB)(16 GB RAM)",
         brand_name:"VIVO",
@@ -267,7 +209,7 @@ let all_products = [
         rating:4.9
     },
     {
-        id:73,
+        id:102,
         name:"REDMI Note 13 Pro 5G(Scarlet Red,128 GB)(8 GB RAM)",
         full_name:"REDMI Note 13 Pro 5G(Scarlet Red,128 GB)(8 GB RAM)",
         brand_name:"REDMI",
@@ -283,7 +225,7 @@ let all_products = [
     }
     ,
     {
-        id:74,
+        id:103,
         name:"realme 12 Pro 5G (Navigator Beige)",
         full_name:"realme 12 Pro 5G(Navigator Beige,128 GB)(8 GB RAM)",
         brand_name:"REALME",
@@ -298,7 +240,7 @@ let all_products = [
         rating:4.4
     },
     {
-        id:75,
+        id:104,
         name:"vivo T3 Lite 5G (Vibrant Green)",
         full_name:"vivo T3 Lite 5G (Vibrant Green, 128 GB)(6 GB RAM)",
         brand_name:"VIVO",
@@ -313,7 +255,7 @@ let all_products = [
         rating:4.4
     },
      {
-        id:76,
+        id:93,
         name:" Round Rose Gold…",
         full_name:" Round Rose Gold Analog Watch - For Women DRW001",
         brand_name:" Daniel Radcliffe",
@@ -326,7 +268,7 @@ let all_products = [
     },
 
  {
-        id:77,
+        id:94,
         name:" Gorgeous Analog Watch… ",
         full_name:" Gorgeous Analog Watch - For Women Diamond Studded Series ",
         brand_name:" Americanviber ",
@@ -339,7 +281,7 @@ let all_products = [
     },
 
     {
-        id:78,
+        id:95,
         name:" DRW001 Analog Watch…",
         full_name:" DRW001 Analog Watch - For Women Latest Series",
         brand_name:" Daniel Radcliffe  ",
@@ -352,7 +294,7 @@ let all_products = [
     },
 
     {
-        id:79,
+        id:96,
         name:" Analog Watch – For… ",
         full_name:" Analog Watch - For Women LD-L144-BLU-CH ",
         brand_name:" LOUIS DEVIN  ",
@@ -365,11 +307,11 @@ let all_products = [
     },
 
    {
-        id:80,
+        id:97,
         name:" Gorgeous Analog Watch…",
         full_name:" Gorgeous Analog Watch - For Women Diamond Studded Series ",
         brand_name:" Americanviber  ",
-        category:"women",
+        category:"women-watches",
         image:" https://rukminim2.flixcart.com/image/612/612/xif0q/watch/u/a/5/diamond-studded-series-americanviber-women-original-imah2asyxezznykz.jpeg?q=70 ",
         new_price:279,
         old_price:699,
@@ -378,7 +320,7 @@ let all_products = [
     },
 
   {
-        id:81,
+        id:98,
         name:" Sonata - TRNDZ Analog…",
         full_name:"Sonata - TRNDZ Analog Watch - For Women 8123NM01 ",
         brand_name:"SONATA ",

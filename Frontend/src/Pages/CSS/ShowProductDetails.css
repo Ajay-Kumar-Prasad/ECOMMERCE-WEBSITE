@@ -1,7 +1,7 @@
 .product-image{
     height: 30rem;
     width: 25rem !important;
-    /* object-fit: cover; */
+    object-fit: cover;
     padding:1rem 2rem 0rem 0rem;
 }
 .product-details{

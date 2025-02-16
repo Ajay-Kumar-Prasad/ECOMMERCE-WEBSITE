@@ -345,7 +345,7 @@ let men_data = [
         rating:3.9
     },
     {
-        id:39,
+        id:117,
         name:"Synthetic Leather Lightw..",
         full_name:"Synthetic Leather Daily Use Sneakers For Men (White)",
         brand_name:"aadi",
@@ -360,7 +360,7 @@ let men_data = [
         rating:3.6
     },
     {
-        id:40,
+        id:118,
         name:"Casual Sneaker Shoes..",
         full_name:" Classic Rounded Toe, Soothing Insole Sneakers For Men (Blue, Off White)",
         brand_name:"Red Tape",
@@ -375,7 +375,7 @@ let men_data = [
         rating:4.3
     },
     {
-        id:41,
+        id:119,
         name:"Boots For Men(Bla..",
         full_name:"Boots For Men  (Black)",
         brand_name:"Vellinto",
@@ -390,7 +390,7 @@ let men_data = [
         rating:4.4
     },
     {
-        id:42,
+        id:120,
         name:"Puma Smashic Sneak..",
         full_name:"Puma Smashic Sneakers For Men  (White)",
         brand_name:"PUMA",
@@ -405,7 +405,7 @@ let men_data = [
         rating:4.1
     },
     {
-        id:43,
+        id:121,
         name:"Loafers For Men (Bro..",
         full_name:"Loafers For Men  (Brown)",
         brand_name:"Bata",
@@ -612,82 +612,7 @@ let men_data = [
         rating:undefined
     },
     {
-        id:57,
-        name:"Trending Premium Qu...",
-        full_name:"Day & Date Functioning for Boys Analog Watch ",
-        description:"Trending Premium Quality Day & Date Functioning for Boys Analog Watch - For Men SK-PG-4078-WYT-BRWN Basic with Day and Date Display:Men will never miss out on his time machine when it comes to his fashion quotient . Apart from being an indispensable tool for making life easier , men's watches are an extension for their personality.",
-        brand_name:"PROVOGUE ",
-        category:"men-watches",
-        image:"https://rukminim2.flixcart.com/image/612/612/xif0q/watch/e/v/e/1-sk-pg-4078-wyt-brwn-basic-with-day-and-date-display-provogue-original-imahffrywrx3x8zb.jpeg?q=70",
-        image_1:"https://rukminim2.flixcart.com/image/832/832/xif0q/watch/k/5/e/1-sk-pg-4078-wyt-brwn-basic-with-day-and-date-display-provogue-original-imahffry6hyzxtez.jpeg?q=70&crop=false",
-        image_2:"https://rukminim2.flixcart.com/image/832/832/xif0q/watch/w/y/c/1-sk-pg-4078-wyt-brwn-basic-with-day-and-date-display-provogue-original-imahffryrhz5gxvw.jpeg?q=70&crop=false",
-        new_price:299,
-        old_price:2499,
-        discount:"88% off",
-        rating:3.9
-    },
-    {
-        id:58,
-        name:"Analog Watch-For..",
-        full_name:"Analog Watch - For Men PE000017B",
-        brand_name:"PETER ENGLAND",
-        category:"men-watches",
-        description:"Analog Watch for Men with Day and Date Display This Watch is an Analog watch with Day and Date Display. Whether you are an office goer, a college-going teenager, or an established man, you cannot deny the satisfaction you get after wearing this watch. The Movement of the watch is Quartz which results in a Cost-Effective Watch. It has Three Hands on the Dial that includes Hours, Minutes, and Seconds.",
-        image:"https://rukminim2.flixcart.com/image/612/612/xif0q/watch/v/f/2/-original-imagrdzghye4wtqq.jpeg?q=70",
-        image_1:"https://rukminim2.flixcart.com/image/832/832/kg8avm80-0/watch/f/f/3/pe000017b-peter-england-original-imafwgbuhhky2pn4.jpeg?q=70&crop=false",
-        image_2:"https://rukminim2.flixcart.com/image/832/832/kg8avm80-0/watch/0/o/n/pe000017b-peter-england-original-imafwgbuqymdrqs2.jpeg?q=70&crop=false",
-        new_price:1467,
-        old_price:3045,
-        discount:"51% off",
-        rating:4.3
-    },
-    {
-        id:59,
-        name:"Provogue Functioning S..",
-        full_name:"Provogue Functioning Stainless Chain Analog Watch ",
-        brand_name:"PROVOGUE",
-        description:"Provogue Functioning Stainless Chain Analog Watch - For Men SK-PG-4076-BLUWYT-SLVR Basic Analog Watch for Men with Day and Date Display This Watch is an Analog watch with Day and Date Display. Whether you are an office goer, a college-going teenager, or an established man, you cannot deny the satisfaction you get after wearing this watch. The Movement of the watch is Quartz which results in a Cost-Effective Watch. It has Three Hands on the Dial that includes Hours, Minutes, and Seconds.",
-        category:"men-watches",
-        image:"https://rukminim2.flixcart.com/image/612/612/xif0q/watch/p/a/y/-original-imagrtbrqzwf8fjn.jpeg?q=70",
-        image_1:"https://rukminim2.flixcart.com/image/832/832/xif0q/watch/8/n/x/1-sk-pg-4076-bluwyt-slvr-basic-analog-watch-for-men-with-day-and-original-imagnec86ddrnrqk.jpeg?q=70&crop=false",
-        image_2:"https://rukminim2.flixcart.com/image/832/832/xif0q/watch/s/q/h/1-sk-pg-4076-bluwyt-slvr-basic-analog-watch-for-men-with-day-and-original-imagnec8fxgayqxz.jpeg?q=70&crop=false",
-        new_price:359,
-        old_price:2499,
-        discount:"85% off",
-        rating:3.6
-    },
-    {
-        id:60,
-        name:"Tees Analog Watch..",
-        full_name:"Tees Analog Watch - For Men 68011PP08",
-        brand_name:"Fastrack",
-        category:"men-watches",
-        description:"Product Details:Water Resistant-Yes,Display Type-Analog,Style Code-68011PP08,Series-Tees,Occasion-Casual,Watch Type-Wrist Watch,Pack of-1,Model Name -68011PP08",
-        image:"https://rukminim2.flixcart.com/image/612/612/xif0q/watch/a/k/e/-original-imagnydrewxe5qeg.jpeg?q=70",
-        image_1:"https://rukminim2.flixcart.com/image/832/832/k8ro3gw0/watch/n/h/w/68011pp08-fastrack-original-imafqpgyxj24wf6b.jpeg?q=70&crop=false",
-        image_2:"https://rukminim2.flixcart.com/image/832/832/k8ro3gw0/watch/n/h/w/68011pp08-fastrack-original-imafqpgydmyr4mff.jpeg?q=70&crop=false",
-        new_price:939,
-        old_price:945,
-        discount:undefined,
-        rating:4.3
-    },
-    {
-        id:61,
-        name:"Flynn Analog Watch..",
-        full_name:"Flynn Analog Watch-For Men BQ1125",
-        brand_name:"FOSSIL",
-        category:"men-watches",
-        description:"Wear the ultimate expression of Fossil style and design evolution on your wrist with this chronograph watch. Expertly crafted from stainless steel and silver link bracelet, the Flynn series watch ensures form and function for years to come. The classic black dial features a chronograph display for precise timekeeping and a date interface for easy reference.",
-        image:"https://rukminim2.flixcart.com/image/612/612/xif0q/watch/0/k/a/-original-imagphkyrrrnaryb.jpeg?q=70",
-        image_1:"https://rukminim2.flixcart.com/image/832/832/k1qr5ow0/watch/k/z/z/bq1125-fossil-original-imafh86zh8c8unss.jpeg?q=70&crop=false",
-        image_2:"https://rukminim2.flixcart.com/image/832/832/k1pbpu80/watch/k/z/z/bq1125-fossil-original-imafh86zeg6gymxw.jpeg?q=70&crop=false",
-        new_price:5879,
-        old_price:11995,
-        discount:"50%off",
-        rating:4.3
-    },
-    {
-        id:62,
+        id:108,
         name:"Apple AirPods(2nd gen)",
         full_name:"Apple AirPods(2nd gen) with Charging Case Bluetooth Headset ",
         brand_name:"APPLE",
@@ -702,7 +627,7 @@ let men_data = [
         rating:4.5
     },
     {
-        id:63,
+        id:109,
         name:"realme Buds T110 ",
         full_name:"realme Buds T110 with AI ENC for calls",
         description:"realme Buds T110 with AI ENC for calls, upto 38 hours of Playback and Fast Charging Bluetooth Headset  (Jazz Blue, True Wireless) : the realme Buds T110, designed to provide an immersive music and gaming experience,with 10 MM Dynamic Boost Drivers to deliver powerful and dynamic sound to enhance your listening experience & low latency of 88ms for smooth and lag-free audio while gaming or watching videos.",
@@ -717,7 +642,7 @@ let men_data = [
         rating:4.2
     },
     {
-        id:64,
+        id:110,
         name:"boAt Airdopes 161",
         full_name:"boAt Airdopes 161/163 Bluet.. Headset(Pebble Black,Active Black,True Wireless)",
         brand_name:"boAt",
@@ -732,7 +657,7 @@ let men_data = [
         rating:4
     },
     {
-        id:65,
+        id:111,
         name:"OPPO Enco Buds 2",
         full_name:"OPPO Enco Buds 2 Bluetooth Headset (Midnight, True Wireless)",
         brand_name:"OPPO",
@@ -791,7 +716,81 @@ let men_data = [
         discount:"52%off",
         rating:4.3
     },
-    
+    {
+        id:112,
+        name:"Trending Premium Qu...",
+        full_name:"Day & Date Functioning for Boys Analog Watch ",
+        description:"Trending Premium Quality Day & Date Functioning for Boys Analog Watch - For Men SK-PG-4078-WYT-BRWN Basic with Day and Date Display:Men will never miss out on his time machine when it comes to his fashion quotient . Apart from being an indispensable tool for making life easier , men's watches are an extension for their personality.",
+        brand_name:"PROVOGUE ",
+        category:"men-watches",
+        image:"https://rukminim2.flixcart.com/image/612/612/xif0q/watch/e/v/e/1-sk-pg-4078-wyt-brwn-basic-with-day-and-date-display-provogue-original-imahffrywrx3x8zb.jpeg?q=70",
+        image_1:"https://rukminim2.flixcart.com/image/832/832/xif0q/watch/k/5/e/1-sk-pg-4078-wyt-brwn-basic-with-day-and-date-display-provogue-original-imahffry6hyzxtez.jpeg?q=70&crop=false",
+        image_2:"https://rukminim2.flixcart.com/image/832/832/xif0q/watch/w/y/c/1-sk-pg-4078-wyt-brwn-basic-with-day-and-date-display-provogue-original-imahffryrhz5gxvw.jpeg?q=70&crop=false",
+        new_price:299,
+        old_price:2499,
+        discount:"88% off",
+        rating:3.9
+    },
+    {
+        id:113,
+        name:"Analog Watch-For..",
+        full_name:"Analog Watch - For Men PE000017B",
+        brand_name:"PETER ENGLAND",
+        category:"men-watches",
+        description:"Analog Watch for Men with Day and Date Display This Watch is an Analog watch with Day and Date Display. Whether you are an office goer, a college-going teenager, or an established man, you cannot deny the satisfaction you get after wearing this watch. The Movement of the watch is Quartz which results in a Cost-Effective Watch. It has Three Hands on the Dial that includes Hours, Minutes, and Seconds.",
+        image:"https://rukminim2.flixcart.com/image/612/612/xif0q/watch/v/f/2/-original-imagrdzghye4wtqq.jpeg?q=70",
+        image_1:"https://rukminim2.flixcart.com/image/832/832/kg8avm80-0/watch/f/f/3/pe000017b-peter-england-original-imafwgbuhhky2pn4.jpeg?q=70&crop=false",
+        image_2:"https://rukminim2.flixcart.com/image/832/832/kg8avm80-0/watch/0/o/n/pe000017b-peter-england-original-imafwgbuqymdrqs2.jpeg?q=70&crop=false",
+        new_price:1467,
+        old_price:3045,
+        discount:"51% off",
+        rating:4.3
+    },
+    {
+        id:114,
+        name:"Provogue Functioning S..",
+        full_name:"Provogue Functioning Stainless Chain Analog Watch ",
+        brand_name:"PROVOGUE",
+        description:"Provogue Functioning Stainless Chain Analog Watch - For Men SK-PG-4076-BLUWYT-SLVR Basic Analog Watch for Men with Day and Date Display This Watch is an Analog watch with Day and Date Display. Whether you are an office goer, a college-going teenager, or an established man, you cannot deny the satisfaction you get after wearing this watch. The Movement of the watch is Quartz which results in a Cost-Effective Watch. It has Three Hands on the Dial that includes Hours, Minutes, and Seconds.",
+        category:"men-watches",
+        image:"https://rukminim2.flixcart.com/image/612/612/xif0q/watch/p/a/y/-original-imagrtbrqzwf8fjn.jpeg?q=70",
+        image_1:"https://rukminim2.flixcart.com/image/832/832/xif0q/watch/8/n/x/1-sk-pg-4076-bluwyt-slvr-basic-analog-watch-for-men-with-day-and-original-imagnec86ddrnrqk.jpeg?q=70&crop=false",
+        image_2:"https://rukminim2.flixcart.com/image/832/832/xif0q/watch/s/q/h/1-sk-pg-4076-bluwyt-slvr-basic-analog-watch-for-men-with-day-and-original-imagnec8fxgayqxz.jpeg?q=70&crop=false",
+        new_price:359,
+        old_price:2499,
+        discount:"85% off",
+        rating:3.6
+    },
+    {
+        id:115,
+        name:"Tees Analog Watch..",
+        full_name:"Tees Analog Watch - For Men 68011PP08",
+        brand_name:"Fastrack",
+        category:"men-watches",
+        description:"Product Details:Water Resistant-Yes,Display Type-Analog,Style Code-68011PP08,Series-Tees,Occasion-Casual,Watch Type-Wrist Watch,Pack of-1,Model Name -68011PP08",
+        image:"https://rukminim2.flixcart.com/image/612/612/xif0q/watch/a/k/e/-original-imagnydrewxe5qeg.jpeg?q=70",
+        image_1:"https://rukminim2.flixcart.com/image/832/832/k8ro3gw0/watch/n/h/w/68011pp08-fastrack-original-imafqpgyxj24wf6b.jpeg?q=70&crop=false",
+        image_2:"https://rukminim2.flixcart.com/image/832/832/k8ro3gw0/watch/n/h/w/68011pp08-fastrack-original-imafqpgydmyr4mff.jpeg?q=70&crop=false",
+        new_price:939,
+        old_price:945,
+        discount:undefined,
+        rating:4.3
+    },
+    {
+        id:116,
+        name:"Flynn Analog Watch..",
+        full_name:"Flynn Analog Watch-For Men BQ1125",
+        brand_name:"FOSSIL",
+        category:"men-watches",
+        description:"Wear the ultimate expression of Fossil style and design evolution on your wrist with this chronograph watch. Expertly crafted from stainless steel and silver link bracelet, the Flynn series watch ensures form and function for years to come. The classic black dial features a chronograph display for precise timekeeping and a date interface for easy reference.",
+        image:"https://rukminim2.flixcart.com/image/612/612/xif0q/watch/0/k/a/-original-imagphkyrrrnaryb.jpeg?q=70",
+        image_1:"https://rukminim2.flixcart.com/image/832/832/k1qr5ow0/watch/k/z/z/bq1125-fossil-original-imafh86zh8c8unss.jpeg?q=70&crop=false",
+        image_2:"https://rukminim2.flixcart.com/image/832/832/k1pbpu80/watch/k/z/z/bq1125-fossil-original-imafh86zeg6gymxw.jpeg?q=70&crop=false",
+        new_price:5879,
+        old_price:11995,
+        discount:"50%off",
+        rating:4.3
+    },
     {
         id:76,
         name:"boAt Rockerz 460",

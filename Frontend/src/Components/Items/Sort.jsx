@@ -3,8 +3,8 @@ import "./Sort.css"
 import { ShopContext } from "../../ContextAPI/ShopContext";
 import CategoryItem from "./CategoryItems";
 export default function Sort({property}){
-    const {shirts_data} = useContext(ShopContext)
-    let filtered_array = shirts_data.filter((obj) => obj.category === property)
+    const {men_data} = useContext(ShopContext)
+    let filtered_array = men_data.filter((obj) => obj.category === property)
     const [sortedItems,setSortedItems] = useState(filtered_array);
     const handleSortChange = (event) => {
         const selectedValue = event.target.value;

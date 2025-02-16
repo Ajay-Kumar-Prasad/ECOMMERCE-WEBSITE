@@ -34,7 +34,7 @@ export default function ShowProductDetails(props){
             <i className="fa-solid fa-bag-shopping"></i>&nbsp;{addedToCart ? (<Link to="/cart" style={{textDecoration:"none", color:"white"}}><a>Go to Cart</a></Link>) : (<a>Add To Cart</a>)}
             </button> &nbsp;&nbsp;
             <button type="button" className="btn btn-outline-secondary btn-wishlist"><i class="fa-regular fa-heart">&nbsp;</i>Wishlist</button>
-            { props.showSize && (product.id < 70 || product.id > 75) &&
+            { props.showSize && (product.id < 87 || product.id > 121) && 
             <>
             <h6><br />&nbsp;&nbsp;&nbsp;&nbsp;SELECT SIZE</h6>
             &nbsp;&nbsp;&nbsp;&nbsp;<button type="button" className="btn btn-outline-secondary btn-wishlist btn-size">S</button>&nbsp;&nbsp;
