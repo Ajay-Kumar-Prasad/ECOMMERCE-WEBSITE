@@ -1,12 +1,11 @@
 require('dotenv').config(); 
 const express = require("express");
-const port = process.env.PORT;
+const port = process.env.PORT || 8080;
 const app = express();
 const mongoose = require('mongoose');
 const path = require('path');
 const cors = require('cors');
 
-app.use(express.json());
 app.use(cors({
     origin: "https://ecommerce-website-frontend-4ec2.onrender.com",
     methods: ["GET", "POST", "PUT", "DELETE"],
