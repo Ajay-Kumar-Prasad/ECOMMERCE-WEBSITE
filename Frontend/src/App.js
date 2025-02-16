@@ -26,7 +26,7 @@ function App() {
     // Fetch products from backend
     const fetchProducts = async () => {
       try {
-        const response = await axios.get(`${API_BASE_URL}/api/products`);
+        const response = await axios.get("https://ecommerce-website-bprc.onrender.com/api/products");
         console.log(response.data);
         setProducts(response.data);
       } catch (err) {
