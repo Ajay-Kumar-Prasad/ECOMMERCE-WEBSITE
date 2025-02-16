@@ -7,10 +7,16 @@ const path = require('path');
 const cors = require('cors');
 
 app.use(express.json());
-app.use(cors());
+app.use(cors({
+    origin: "https://ecommerce-website-frontend-4ec2.onrender.com",
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    credentials: true
+}));
+
+// app.use(cors());
 const Product = require('./models/Product');
 app.use(express.json());
-app.use(express.static(path.join(__dirname, '../Frontend/build')));
+// app.use(express.static(path.join(__dirname, '../Frontend/build')));
 main()
     .then(()=>{
         console.log("connected to database");
