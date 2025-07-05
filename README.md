@@ -59,3 +59,4 @@ ECOMMERCE-WEBSITE/
 │
 └── README.md
 
+![alt text](/Users/ajayyy/Desktop/ECOMMERCE-WEBSITE/image.png)
