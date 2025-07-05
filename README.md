@@ -2,6 +2,9 @@
 
 A full-featured, responsive E-Commerce platform built with the **MERN Stack** (MongoDB, Express.js, React.js, Node.js) and **JWT Authentication**. The project simulates a real-world online shopping experience with dynamic cart management, user authentication, and product browsing features.
 
+# To view website:
+https://ajay-kumar-e-commerce-website.onrender.com
+
 ## 🚀 Features
 
 ### 👨‍💻 Frontend (React.js)
