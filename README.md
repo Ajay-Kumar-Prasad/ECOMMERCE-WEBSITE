@@ -39,7 +39,7 @@ https://ajay-kumar-e-commerce-website.onrender.com
 | Dotenv     | Environment Variables |
 
 ## 📂 Project Structure
-
+```
 ECOMMERCE-WEBSITE/
 │
 ├── backend/
@@ -61,5 +61,6 @@ ECOMMERCE-WEBSITE/
 │ └── package.json
 │
 └── README.md
+```
 
 ![alt text](/Users/ajayyy/Desktop/ECOMMERCE-WEBSITE/image.png)
