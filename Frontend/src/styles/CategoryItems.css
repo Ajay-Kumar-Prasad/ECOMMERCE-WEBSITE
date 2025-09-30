@@ -1,0 +1,33 @@
+.card-product{
+    border: none !important;
+    width: 12rem !important;
+}
+.card-image{
+    object-fit: cover;
+    height: 12rem !important;
+    width: 10rem !important;
+    transition: transform .2s;
+}
+.card-image:hover{
+    transform: scale(1.2);
+}
+.card-text{
+    font-size: 0.9rem !important;
+}
+.card-product-list{
+    width: 12rem !important;
+    border: none !important;
+}
+.card-product-list img{
+    object-fit: cover;
+    width: 10rem !important;
+    height: 12rem !important;
+    transition: transform .2s;
+}
+.card-product-list img:hover{
+    transform: scale(1.2);
+}
+.card-category{
+    display: flex;
+    justify-content: center;
+}

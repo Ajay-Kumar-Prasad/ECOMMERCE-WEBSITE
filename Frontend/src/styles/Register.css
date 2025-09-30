@@ -1,0 +1,130 @@
+.register-container {
+    height: 550px;
+    max-width: 450px;
+    margin: 50px auto;
+    padding: 35px 40px;
+    background: #fff;
+    border-radius: 14px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  }
+  
+  /* Heading */
+  .register-container h2 {
+    text-align: center;
+    font-weight: 600;
+    font-size: 2rem;
+    margin-bottom: 25px;
+    color: #222;
+  }
+  
+  /* Google Button */
+  .btn-google {
+    margin-top: 280px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 10px 12px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    font-weight: 500;
+    font-size: 15px;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+  }
+  
+  .btn-google img {
+    width: 20px;
+    height: 20px;
+  }
+  
+  .btn-google:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transform: translateY(-1px);
+  }
+  
+  /* Divider text */
+  .divider {
+    text-align: center;
+    margin: 15px 0;
+    color: #888;
+    font-size: 14px;
+  }
+  
+  /* Form labels and inputs */
+  .form-label {
+    font-weight: 500;
+    margin-bottom: 6px;
+    color: #444;
+  }
+  
+  .form-control {
+    border-radius: 8px;
+    padding: 10px 14px;
+    font-size: 15px;
+    border: 1px solid #ccc;
+    transition: all 0.2s ease-in-out;
+  }
+  
+  .form-control:focus {
+    border-color: #28a745;
+    box-shadow: 0 0 8px rgba(40, 167, 69, 0.3);
+    outline: none;
+  }
+  
+  /* Checkbox */
+  .form-check-label a {
+    text-decoration: underline;
+    color: #007bff;
+  }
+  
+  .form-check-label a:hover {
+    color: #0056b3;
+  }
+  
+  /* Signup button */
+  .btn-success {
+    width: 100%;
+    padding: 12px;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 500;
+    margin-top: 5px;
+    background: linear-gradient(135deg, #28a745, #218838);
+    border: none;
+    transition: all 0.25s ease-in-out;
+  }
+  
+  .btn-success:hover {
+    background: linear-gradient(135deg, #218838, #1e7e34);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(40, 167, 69, 0.4);
+  }
+  
+  /* Login link */
+  .login-link {
+    text-align: center;
+    margin-top: 15px;
+    font-size: 14px;
+  }
+  
+  .login-link a {
+    color: #007bff;
+    text-decoration: underline;
+  }
+  
+  .login-link a:hover {
+    color: #0056b3;
+  }
+  
+  /* Responsive */
+  @media (max-width: 600px) {
+    .register-container {
+      width: 90%;
+      padding: 25px;
+    }
+  }
+  

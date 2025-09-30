@@ -1,5 +1,5 @@
 import React from "react"
-import "../../Pages/CSS/Item.css";
+import "../../styles/Item.css";
 export default function Item(props){
     return(
         <div class="card card-item" style={{width:"12rem", height:"18rem"}}>

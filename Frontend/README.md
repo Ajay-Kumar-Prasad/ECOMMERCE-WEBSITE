@@ -4,6 +4,86 @@ Adding more features..
 To view website:
 https://ajay-kumar-e-commerce-website.onrender.com
 
+# File Structure
+```
+ecommerce-app/
+│── backend/                  # Node.js + Express + MongoDB
+│   ├── config/               # Configuration files
+│   │   └── db.js             # MongoDB connection
+│   │   └── keys.js           # Secrets, env variables (or use .env)
+│
+│   ├── controllers/          # Business logic (API handlers)
+│   │   ├── authController.js
+│   │   ├── productController.js
+│   │   ├── orderController.js
+│   │   └── userController.js
+│
+│   ├── models/               # Mongoose models (schemas)
+│   │   ├── User.js
+│   │   ├── Product.js
+│   │   └── Order.js
+│
+│   ├── routes/               # Express routes
+│   │   ├── authRoutes.js
+│   │   ├── productRoutes.js
+│   │   ├── orderRoutes.js
+│   │   └── userRoutes.js
+│
+│   ├── middleware/           # Custom middleware
+│   │   ├── authMiddleware.js # Protect routes (JWT)
+│   │   └── errorMiddleware.js
+│
+│   ├── utils/                # Helper functions
+│   │   ├── generateToken.js
+│   │   └── emailService.js
+│
+│   ├── server.js             # Entry point (Express app)
+│   ├── .env                  # Environment variables
+│   └── package.json
+│
+│
+│── frontend/                 # React.js app
+│   ├── public/               # Static files
+│   │   └── index.html
+│
+│   ├── src/
+│   │   ├── api/              # Axios API calls
+│   │   │   ├── authApi.js
+│   │   │   ├── productApi.js
+│   │   │   └── orderApi.js
+│   │
+│   │   ├── assets/           # Images, icons
+│   │
+│   │   ├── components/       # Reusable UI components
+│   │   │   ├── Navbar.js
+│   │   │   ├── Footer.js
+│   │   │   └── ProductCard.js
+│   │
+│   │   ├── pages/            # Route pages
+│   │   │   ├── Home.js
+│   │   │   ├── Login.js
+│   │   │   ├── Register.js
+│   │   │   ├── Products.js
+│   │   │   ├── ProductDetail.js
+│   │   │   ├── Cart.js
+│   │   │   ├── Checkout.js
+│   │   │   └── Orders.js
+│   │
+│   │   ├── context/          # Context API for global state
+│   │   │   ├── AuthContext.js
+│   │   │   └── CartContext.js
+│   │
+│   │   ├── styles/           # CSS / SCSS files
+│   │   ├── utils/            # Helpers (currency, validators)
+│   │   ├── App.js
+│   │   ├── index.js
+│   │   └── routes.js
+│   │
+│   ├── package.json
+│
+│── .gitignore
+│── README.md
+```
 
 # Getting Started with Create React App
 

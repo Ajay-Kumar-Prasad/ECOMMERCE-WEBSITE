@@ -1,0 +1,31 @@
+import React from "react";
+import { useParams } from "react-router-dom";
+import Listing from "./Listing"; // your existing Listing component
+import BANNERS from "../../constants/banners";
+
+const ListingWrapper = () => {
+  const { category, subcategory } = useParams();
+
+  let url = null;
+
+  switch (category) {
+    case "men":
+      url = BANNERS.menCategories[subcategory];
+      break;
+    case "women":
+      url = BANNERS.womenCategories[subcategory];
+      break;
+    case "kids":
+      url = BANNERS.kidsCategories[subcategory];
+      break;
+    default:
+      url = null;
+  }
+
+  // If URL doesn’t exist, you can show 404 or fallback banner
+  if (!url) return <p>Category not found.</p>;
+
+  return <Listing url={url} listname={`${category}-${subcategory}`} />;
+};
+
+export default ListingWrapper;

@@ -1,5 +1,5 @@
 import React from "react";
-import "./CSS/Item.css";
+import "../styles/CategoryItem.css";
 import { Link } from "react-router-dom";
 import Item from "../Components/Items/Item";
 import all_products from "../ContextAPI/All_Product";

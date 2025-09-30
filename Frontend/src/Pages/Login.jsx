@@ -2,7 +2,9 @@ import React,{ useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from 'axios';
 import { AuthContext } from '../ContextAPI/authContext';
-import '../Pages/CSS/SignIn.css';
+import '../styles/Register.css';
+import googleLogo from "../assets/google-logo.png";
+
 export default function Login(){
     const { setUser, setToken } = useContext(AuthContext);
     const [email, setEmail] = useState('');
@@ -22,23 +24,53 @@ export default function Login(){
             alert(error.response.data.message);
         }
     };
-
+    const handleGoogleLogin = () => {
+        alert("Google Login clicked! Implement OAuth flow here.");
+    };
     return(
-        <div class="row mt-3">
-            <h2 class="col-6 offset-3">Login!</h2>
-            <div class="col-6 offset-3">
-                <form class="needs-validation" onSubmit={handleLogin} novalidate>
-                    <div class="mb-3">
-                        <label for="email" class="form-label">Email</label>
-                        <input name="email" id="email" value={email} type="email" class="form-control" onChange={(e) => setEmail(e.target.value)} required/>
-                    </div>
-                    <div class="mb-3">
-                        <label for="password" class="form-label">Password</label>
-                        <input name="password" id="password" value={password} type="password" class="form-control" onChange={(e) => setPassword(e.target.value)} required/>
-                    </div>
-                    <button class="btn btn-success">Login</button>
-                </form>
+        <div className="register-container">
+              <h2>Login</h2>
+              <form className="needs-validation" noValidate onSubmit={handleLogin}>
+                <div className="mb-3">
+                  <label htmlFor="email" className="form-label">
+                    Email
+                  </label>
+                  <input
+                    id="email"
+                    type="email"
+                    className="form-control"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    required
+                  />
+                </div>
+                <div className="mb-3">
+                  <label htmlFor="password" className="form-label">
+                    Password
+                  </label>
+                  <input
+                    id="password"
+                    type="password"
+                    className="form-control"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                    required
+                  />
+                </div>
+        
+                <button type="submit" className="btn btn-success">
+                  Login
+                </button>
+              </form>
+              <p className="divider">or</p>
+              {/* Google Signup */}
+              <button type="button" className="btn-google" onClick={handleGoogleLogin}>
+                <img src={googleLogo} alt="Google Logo" />
+                Login with Google
+              </button>
+              <p className="login-link">
+                Don't have an account? <a href="/register"> Register</a>
+              </p>
             </div>
-        </div>
     )
 }
