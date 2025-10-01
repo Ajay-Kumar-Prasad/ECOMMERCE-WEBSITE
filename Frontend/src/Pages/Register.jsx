@@ -1,7 +1,7 @@
 import React, { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
-import { AuthContext } from "../ContextAPI/authContext";
+import { registerUser } from "../api/authAPI"; 
+import { AuthContext } from "../ContextAPI/authContext"; 
 import "../styles/Register.css";
 import googleLogo from "../assets/google-logo.png";
 
@@ -10,7 +10,8 @@ export default function Register() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [agree, setAgree] = useState(false);
-  const { setUser, setToken, setIsAuthenticated } = useContext(AuthContext);
+
+  const { login } = useContext(AuthContext); 
   const navigate = useNavigate();
 
   const handleSignup = async (e) => {
@@ -21,21 +22,10 @@ export default function Register() {
     }
 
     try {
-      const response = await axios.post("http://localhost:8080/api/auth/signup", {
-        name,
-        email,
-        password,
-      });
-
-      const { token, user } = response.data;
-      localStorage.setItem("token", token);
-
-      setUser(user);
-      setToken(token);
-      setIsAuthenticated(true);
-
+      const data = await registerUser({ name, email, password });
+      login(data); // store user + token in context + localStorage
       alert("Signup successful!");
-      navigate("/");
+      navigate("/"); // redirect to home
     } catch (error) {
       alert(error.response?.data?.message || "Signup failed!");
     }
@@ -43,7 +33,6 @@ export default function Register() {
 
   const handleGoogleSignup = () => {
     alert("Google Signup clicked! Implement OAuth flow here.");
-    //integrate Google OAuth
   };
 
   return (
@@ -51,9 +40,7 @@ export default function Register() {
       <h2>Register</h2>
       <form className="needs-validation" noValidate onSubmit={handleSignup}>
         <div className="mb-3">
-          <label htmlFor="username" className="form-label">
-            Username
-          </label>
+          <label htmlFor="username" className="form-label">Username</label>
           <input
             id="username"
             type="text"
@@ -65,9 +52,7 @@ export default function Register() {
         </div>
 
         <div className="mb-3">
-          <label htmlFor="email" className="form-label">
-            Email
-          </label>
+          <label htmlFor="email" className="form-label">Email</label>
           <input
             id="email"
             type="email"
@@ -79,9 +64,7 @@ export default function Register() {
         </div>
 
         <div className="mb-3">
-          <label htmlFor="password" className="form-label">
-            Password
-          </label>
+          <label htmlFor="password" className="form-label">Password</label>
           <input
             id="password"
             type="password"
@@ -105,16 +88,16 @@ export default function Register() {
           </label>
         </div>
 
-        <button type="submit" className="btn btn-success">
-          Signup
-        </button>
+        <button type="submit" className="btn btn-success">Signup</button>
       </form>
+
       <p className="divider">or</p>
-      {/* Google Signup */}
+
       <button type="button" className="btn-google" onClick={handleGoogleSignup}>
         <img src={googleLogo} alt="Google Logo" />
         Sign up with Google
       </button>
+
       <p className="login-link">
         Already have an account? <a href="/login">Login</a>
       </p>

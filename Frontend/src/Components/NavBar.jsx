@@ -1,6 +1,6 @@
 import React, { useState, useContext } from "react";
 import "../styles/NavBar.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { ShopContext } from "../ContextAPI/ShopContext";
 import { AuthContext } from "../ContextAPI/authContext";
 
@@ -9,16 +9,19 @@ export default function NavBar() {
   const [search, setSearch] = useState("");
 
   const { getTotalCartItem, cartProduct } = useContext(ShopContext);
-  const { isAuthenticated, logout } = useContext(AuthContext);
+  const { user, logout } = useContext(AuthContext);
+  const navigate = useNavigate();
 
   const onSearch = (searchItem) => {
     setSearch(searchItem);
     console.log("search", searchItem);
   };
 
-  const navStyles = {
-    textDecoration: "none",
-    color: "black",
+  const navStyles = { textDecoration: "none", color: "black" };
+
+  const handleLogout = () => {
+    logout();
+    navigate("/login");
   };
 
   return (
@@ -73,15 +76,9 @@ export default function NavBar() {
                 {search.trim() !== "" && cartProduct.length > 0 && (
                   <div className="search-dropdown">
                     {cartProduct
-                      .filter((item) => {
-                        const input = search.toLowerCase();
-                        const name = item.full_name.toLowerCase();
-                        return (
-                          input &&
-                          name.startsWith(input) &&
-                          name !== input
-                        );
-                      })
+                      .filter((item) =>
+                        item.full_name.toLowerCase().startsWith(search.toLowerCase())
+                      )
                       .slice(0, 10)
                       .map((item) => (
                         <Link
@@ -100,50 +97,31 @@ export default function NavBar() {
 
             {/* Main Links */}
             <div className="navbar-nav nav-list">
-              <Link
-                className="nav-link"
-                to="/"
-                onClick={() => setMenu("Home")}
-                style={navStyles}
-              >
+              <Link className="nav-link" to="/" onClick={() => setMenu("Home")} style={navStyles}>
                 Home {menu === "Home" && <i className="fa-solid fa-caret-down"></i>}
               </Link>
-              <Link
-                className="nav-link"
-                to="/men"
-                onClick={() => setMenu("Men")}
-                style={navStyles}
-              >
+              <Link className="nav-link" to="/men" onClick={() => setMenu("Men")} style={navStyles}>
                 Men {menu === "Men" && <i className="fa-solid fa-caret-down"></i>}
               </Link>
-              <Link
-                className="nav-link"
-                to="/women"
-                onClick={() => setMenu("Women")}
-                style={navStyles}
-              >
+              <Link className="nav-link" to="/women" onClick={() => setMenu("Women")} style={navStyles}>
                 Women {menu === "Women" && <i className="fa-solid fa-caret-down"></i>}
               </Link>
-              <Link
-                className="nav-link"
-                to="/kids"
-                onClick={() => setMenu("Kids")}
-                style={navStyles}
-              >
+              <Link className="nav-link" to="/kids" onClick={() => setMenu("Kids")} style={navStyles}>
                 Kids {menu === "Kids" && <i className="fa-solid fa-caret-down"></i>}
               </Link>
 
               {/* Auth Buttons */}
-              {isAuthenticated ? (
-                <button className="btn btn-signin" onClick={logout}>
-                  Logout
-                </button>
+              {user ? (
+                <>
+                  <i class="fa-solid fa-circle-user" style={{fontSize:"25px",fontWeight:"bold",color:"#064D75"}}></i> <p><a style={{fontSize:"small"}}>Welcome!</a><br /><span className="navbar-user">{user.name}</span></p>
+                  <button className="btn btn-outline-danger" onClick={handleLogout}>
+                    Sign Out
+                  </button>
+                </>
               ) : (
                 <>
                   <Link to="/register">
-                    <button className="btn btn-signin">
-                      SignUp
-                    </button>
+                    <button className="btn btn-signin">SignUp</button>
                   </Link>
                   <Link to="/login">
                     <button className="btn btn-signin">Login</button>

@@ -37,11 +37,9 @@ function App() {
           <Route path="/women" element={<WomenCategories category="women"/>} />
           <Route path="/men" element={<MenCategories category="men" />} />
           <Route path="/kids" element={<KidsCategories category="kids"/>} />
-          <Route path="/:category/:subcategory?" element={<Listing />} />
-
-
           {/* Product detail */}
           <Route path="/:category/:subcategory/:productId" element={<Products />} />
+          <Route path="/:category/:subcategory?" element={<Listing />} />
 
           {/* Cart / Checkout / Orders */}
           <Route path="/cart" element={<Cart />} />

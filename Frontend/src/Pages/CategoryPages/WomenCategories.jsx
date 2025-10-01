@@ -1,19 +1,17 @@
-import React from "react";
-import { useNavigate } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { useNavigate, useParams, Link } from "react-router-dom";
 import '../../styles/Categories.css';
 import CategoryItem from "../../Components/Items/CategoryItems";
-import all_products from "../../data/All_Product";
 import defaultImg from '../../assets/Images/image.png';
-import { Link, useParams } from "react-router-dom";
 import WOMEN_BANNER from '../../constants/MAIN-BANNER.jpg';
+import axios from "axios";
 
-export default function WomenCategories(props) {
+export default function WomenCategories() {
   const { subcategory } = useParams();
   const navigate = useNavigate();
-    
-  const handleClick = (category, subcategory, productId) => {
-      navigate(`/${category}/${subcategory}/${productId}`);
-  };
+  const [products, setProducts] = useState([]);
+  const [loading, setLoading] = useState(true);
+
   const subcategoryImages = {
     dresses: "https://i.pinimg.com/736x/1a/e1/43/1ae14341b8d9573ecef88c454edca694.jpg",
     tops: "https://i.pinimg.com/originals/16/96/d4/1696d40c051b038d4f56c8b91348a8fc.jpg",
@@ -29,16 +27,35 @@ export default function WomenCategories(props) {
 
   const fallback = (e) => { e.target.src = defaultImg; };
 
-  const filteredProducts = all_products.filter(item => {
-    const itemCategory = item.category ? item.category.toLowerCase() : "";
-    const itemSubcategory = item.subcategory ? item.subcategory.toLowerCase() : "";
-    if (!subcategory) return itemCategory === "women"; // all women products
-    return itemCategory === "women" && itemSubcategory === subcategory.toLowerCase();
-});
+  const handleClick = (category, subcategory, productId) => {
+    navigate(`/${category}/${subcategory}/${productId}`);
+  };
+
+  // Fetch products from backend
+  useEffect(() => {
+    const fetchProducts = async () => {
+      setLoading(true);
+      try {
+        let url = `http://localhost:8080/api/products?category=women`;
+        if (subcategory) url += `&subcategory=${subcategory}`;
+        const res = await axios.get(url);
+        const womenProducts = res.data.filter(
+          (prod) => prod.category.toLowerCase() === "women"
+        );
+        setProducts(womenProducts);
+      } catch (err) {
+        console.error(err);
+      }
+      setLoading(false);
+    };
+
+    fetchProducts();
+  }, [subcategory]);
 
   return (
     <div className="shop-category">
       <img src={WOMEN_BANNER} alt={`Women banner`} onError={fallback} />
+
       {/* Subcategory cards */}
       <div className="list-category row row-cols-lg-6 row-cols-md-3 row-cols-sm-1">
         {Object.keys(subcategoryImages).map((subcat) => (
@@ -55,25 +72,29 @@ export default function WomenCategories(props) {
 
       {/* Products List */}
       <div className="SortByProducts">
-        <h3>Showing {filteredProducts.length} results</h3>
+        <h3>Showing {products.length} results</h3>
       </div>
       <div className="list-category row row-cols-lg-6 row-cols-md-3 row-cols-sm-1">
-        {filteredProducts.map((item, i) => (
-          <CategoryItem
-            key={i}
-            id={item.id}
-            name={item.name}
-            image={item.image || defaultImg} // fallback if item.image is missing
-            new_price={item.new_price}
-            old_price={item.old_price}
-            discount={item.discount}
-            category={item.category}
-            subcategory={item.subcategory}
-            onClick={() =>
-              handleClick(item.category, item.subcategory, item.id)
-            }
-          />
-        ))}
+        {loading ? (
+          <p>Loading...</p>
+        ) : products.length === 0 ? (
+          <p>Products Not Found!</p>
+        ) : (
+          products.map((item) => (
+            <CategoryItem
+              key={item._id}
+              id={item._id}
+              name={item.name}
+              image={item.image || defaultImg}
+              new_price={item.new_price}
+              old_price={item.old_price}
+              discount={item.discount}
+              category={item.category}
+              subcategory={item.subcategory}
+              onClick={() => handleClick(item.category, item.subcategory, item._id)}
+            />
+          ))
+        )}
       </div>
     </div>
   );

@@ -1438,5 +1438,4 @@ let all_products = [
     } 
 
 ]
-export default all_products;
-// module.exports = { data: all_products };
+module.exports = all_products;

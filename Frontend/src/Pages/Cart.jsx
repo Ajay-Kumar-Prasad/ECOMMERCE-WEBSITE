@@ -80,11 +80,17 @@ export default function Cart(){
                 )}
                 </div>
             </div>
-            <div class="text-start mb-4">
-                <a href="/" class="btn btn-outline-primary">
-                    <i class="bi bi-arrow-left me-2"></i>Continue Shopping
-                </a>
-            </div>
+            <a href="/" class="btn btn-pink-outline" style={{color:"#fe424d",borderColor:"#fe424d"}} 
+                onMouseEnter={(e) => {  
+                    e.target.style.backgroundColor = "#fe424d"; 
+                    e.target.style.color = "white";
+                }}
+                onMouseLeave={(e) => {
+                    e.target.style.backgroundColor = "white";
+                    e.target.style.color = "#fe424d";
+                }}>
+                Continue Shopping
+            </a>
         </div>
         <div class="col-lg-4">
             <div class="card cart-summary">
@@ -111,7 +117,7 @@ export default function Cart(){
                         <strong>Total</strong>
                         <strong>₹{getTotalCartPrice().toLocaleString("en-IN")}</strong>
                     </div>
-                    <button class="btn btn-primary w-100">Proceed to Checkout</button>
+                    <button class="btn w-100" style={{color:"white",backgroundColor: "#fe424d"}}>Proceed to Checkout</button>
                 </div>
             </div>
             <div class="card mt-4">

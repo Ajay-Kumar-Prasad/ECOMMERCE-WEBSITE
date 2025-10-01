@@ -1,16 +1,16 @@
-import React, { useContext, useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { Link } from "react-router-dom";
-import { ShopContext } from "../ContextAPI/ShopContext";
-import { useParams } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { useNavigate, useParams, Link } from "react-router-dom";
+import axios from "axios";
 import ShowProductDetails from "./ShowProductDetails";
-import CategoryItem from "../Components/Items/CategoryItems"; // import CategoryItem
+import CategoryItem from "../Components/Items/CategoryItems"; 
 import '../styles/ShowProductDetails.css';
+import defaultImg from '../assets/Images/image.png';
 
 export default function Product() {
-  const { all_products } = useContext(ShopContext);
-  const { productId } = useParams();
+  const { category, subcategory, productId } = useParams();
+  console.log(category, subcategory, productId);
   const [product, setProduct] = useState(null);
+  const [relatedProducts, setRelatedProducts] = useState([]);
   const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
 
@@ -18,63 +18,79 @@ export default function Product() {
     navigate(`/${category}/${subcategory}/${productId}`);
   };
 
-
   useEffect(() => {
-    if (all_products.length > 0) {
-      const foundProduct = all_products.find(
-        (prod) => String(prod.id) === String(productId)
-      );
-      setProduct(foundProduct || null);
-      setLoading(false);
-    }
-  }, [all_products, productId]);
-
+    const fetchProduct = async () => {
+      try {
+        setLoading(true);
+  
+        // Fetch the main product
+        const res = await axios.get(`http://localhost:8080/api/products/${productId}`);
+        setProduct(res.data);
+  
+        // Fetch all products of the same category
+        const relatedRes = await axios.get(
+          `http://localhost:8080/api/products?category=${res.data.category}`
+        );
+  
+        // Filter by exact subcategory and exclude current product
+        const filteredRelated = relatedRes.data.filter(
+          (p) =>
+            p.subcategory?.toLowerCase() === res.data.subcategory?.toLowerCase() &&
+            p._id !== res.data._id
+        );
+  
+        setRelatedProducts(filteredRelated);
+      } catch (err) {
+        console.error(err);
+        setProduct(null);
+        setRelatedProducts([]);
+      } finally {
+        setLoading(false);
+      }
+    };
+  
+    fetchProduct();
+  }, [productId]);
+  
   if (loading) return <div className="text-center">Loading product...</div>;
   if (!product) return <div className="text-center text-danger">Product not found!</div>;
 
-  // Inline breadcrumbs
+  // Breadcrumbs
   const Breadcrumbs = () => (
     <nav className="breadcrumb">
       <Link to="/">Home</Link>
       <i className="fa-solid fa-chevron-right"></i>
-  
-      <Link to="/shop">Shop</Link>
-      <i className="fa-solid fa-chevron-right"></i>
-  
       <Link to={`/${product.category}`}>{product.category}</Link>
       <i className="fa-solid fa-chevron-right"></i>
-  
       <span className="active">{product.name}</span>
     </nav>
   );
-  // Inline related products
+
+  // Related products component
   const RelatedProducts = () => (
     <div className="related-product-page">
       <div className="SortByProducts">
         <h3>Related Products</h3>
       </div>
       <div className="list-category row row-cols-lg-6 row-cols-md-3 row-cols-sm-1">
-        {all_products.map((item, i) => {
-          if (item.category === product.category && item.subcategory === product.subcategory && item.id !== product.id) {
-            return (
-              <CategoryItem
-                key={i}
-                id={item.id}
-                name={item.name}
-                image={item.image}
-                new_price={item.new_price}
-                old_price={item.old_price}
-                discount={item.discount}
-                category={item.category}
-                subcategory={item.subcategory}
-                onClick={() =>
-                  handleClick(item.category, item.subcategory, item.id)
-                }
-              />
-            );
-          }
-          return null;
-        })}
+        {relatedProducts.length === 0 ? (
+          <p>No related products!</p>
+        ) : (
+          relatedProducts.map((item) => (
+            <CategoryItem
+              key={item._id}
+              id={item._id}
+              name={item.name}
+              image={item.image || defaultImg}
+              new_price={item.new_price}
+              old_price={item.old_price}
+              discount={item.discount}
+              category={item.category}
+              subcategory={item.subcategory}
+              onClick={() => handleClick(item.category, item.subcategory, item._id)}
+            />
+          ))
+        )}
       </div>
     </div>
   );

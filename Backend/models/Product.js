@@ -1,55 +1,29 @@
-const mongoose = require("mongoose");
-const Schema = mongoose.Schema;
-const productSchema = new Schema({
-    id:{
-        type:Number,
-        required:true,
-    },
-    name:{
-        type:String,
-        required:true,
-    },
-    full_name:{
-        type:String,
-        required:true,
-    },
-    brand_name:{
-        type:String,
-        required:true,
-    },
-    description:{
-        type:String,
-    },
-    category:{
-        type:String,
-        required:true,
-    },
-    image:{
-        type:String,
-        required:true,
-    },
-    new_price:{
-        type:Number,
-        required:true,
-    },
-    old_price:{
-        type:Number,
-        required:true,
-    },
-    discount:{
-        type:String,
-    },
-    rating:{
-        type:Number,
-    },
-    date:{
-        type:Date,
-        default:Date.now,
-    },
-    available:{
-        type:Boolean,
-        default:true,
-    }
-});
-const Product = mongoose.model("Product",productSchema);
-module.exports = Product;
+const mongoose = require('mongoose');
+
+const productSchema = new mongoose.Schema({
+  name: { 
+    type: String, 
+    required: true 
+  },
+  full_name: { type: String },
+  brand_name: { type: String },
+  category: { 
+    type: String, 
+    required: true 
+}, // men, women, kids
+  subcategory: { type: String },
+  description: { type: String },
+  image: { type: String },
+  new_price: { 
+    type: Number, 
+    required: true 
+},
+  old_price: { type: Number },
+  discount: { type: String },
+  rating: { 
+    type: Number,
+    default: 0 
+}
+}, { timestamps: true });
+
+module.exports = mongoose.model('Product', productSchema);
