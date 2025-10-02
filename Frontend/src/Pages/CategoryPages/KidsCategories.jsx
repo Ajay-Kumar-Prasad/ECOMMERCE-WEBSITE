@@ -74,7 +74,7 @@ export default function KidsCategories() {
         {loading ? (
           <p>Loading...</p>
         ) : products.length === 0 ? (
-          <p>No products found!</p>
+          <p style={{color:"red"}}>No products found!</p>
         ) : (
           products.map((item) => (
             <CategoryItem

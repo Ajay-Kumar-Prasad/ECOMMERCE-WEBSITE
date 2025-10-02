@@ -1,25 +1,79 @@
 const express = require("express");
 const router = express.Router();
+const mongoose = require("mongoose");
 const { protect } = require("../middleware/authMiddleware");
-const {
-  createProduct,
-  getProducts,
-  getProductById,
-} = require("../controllers/productController");
+const Product = require("../models/Product");
 
-// @desc    Get all products (optional category/subcategory filter)
-// @route   GET /api/products?category=men&subcategory=formals
-// @access  Public
-router.get("/", getProducts);
+// Create Product
+router.post("/", protect, async (req, res) => {
+  try {
+    const product = await Product.create(req.body);
+    res.status(201).json(product);
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ message: "Server error" });
+  }
+});
 
-// @desc    Get single product by ID
-// @route   GET /api/products/:id
-// @access  Public
-router.get("/:id", getProductById);
+// Search Products
+router.get("/search", async (req, res) => {
+  try {
+    const { q, category, subcategory } = req.query;
+    const searchConditions = [];
 
-// @desc    Create new product
-// @route   POST /api/products
-// @access  Private (Admin or logged-in)
-router.post("/", protect, createProduct);
+    if (q) {
+      const regex = new RegExp(q, "i");
+      searchConditions.push({
+        $or: [
+          { name: regex },
+          { full_name: regex },
+          { category: regex },
+          { subcategory: regex },
+        ],
+      });
+    }
+
+    if (category) searchConditions.push({ category: new RegExp(`^${category}$`, "i") });
+    if (subcategory) searchConditions.push({ subcategory: new RegExp(`^${subcategory}$`, "i") });
+
+    const finalQuery = searchConditions.length ? { $and: searchConditions } : {};
+    const results = await Product.find(finalQuery).limit(20);
+
+    res.json(results);
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ message: "Server error" });
+  }
+});
+
+
+// Get All Products
+router.get("/", async (req, res) => {
+  try {
+    const products = await Product.find();
+    res.json(products);
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ message: "Server error" });
+  }
+});
+
+// Get Product by ID
+router.get("/:id", async (req, res) => {
+  const { id } = req.params;
+
+  if (!mongoose.Types.ObjectId.isValid(id)) {
+    return res.status(400).json({ message: "Invalid product ID" });
+  }
+
+  try {
+    const product = await Product.findById(id);
+    if (!product) return res.status(404).json({ message: "Product not found" });
+    res.json(product);
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ message: "Server error" });
+  }
+});
 
 module.exports = router;

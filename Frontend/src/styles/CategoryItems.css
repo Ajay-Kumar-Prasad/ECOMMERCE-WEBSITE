@@ -13,6 +13,7 @@
 }
 .card-text{
     font-size: 0.9rem !important;
+    width: 10rem !important;
 }
 .card-product-list{
     width: 12rem !important;

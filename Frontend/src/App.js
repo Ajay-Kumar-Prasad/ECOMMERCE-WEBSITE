@@ -5,6 +5,7 @@ import { AuthProvider } from "./ContextAPI/authContext";
 // Components
 import NavBar from "./Components/NavBar.jsx";
 import Footer from "./Components/Footer.jsx";
+import SearchResults from "./Components/searchResults.jsx";
 
 // Pages
 import Home from "./Pages/Home.jsx";   
@@ -32,6 +33,7 @@ function App() {
         <Routes>
           {/* Landing / Home */}
           <Route path="/" element={<Home />} />
+          <Route path="/search" element={<SearchResults />} />
 
           {/* Dynamic category/subcategory listing */}
           <Route path="/women" element={<WomenCategories category="women"/>} />

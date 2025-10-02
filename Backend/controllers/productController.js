@@ -1,19 +1,20 @@
 const Product = require("../models/Product");
 
-// @desc    Get all products (optionally filtered by category/subcategory)
-// @route   GET /api/products?category=men&subcategory=formals
+// @desc    Get all products with search & category/subcategory filter
+// @route   GET /api/products?search=shirts
 // @access  Public
 const getProducts = async (req, res) => {
   try {
-    const { category, subcategory } = req.query;
+    const { category, subcategory, search } = req.query;
 
     let filter = {};
+
     if (category) filter.category = category.toLowerCase();
     if (subcategory) filter.subcategory = subcategory.toLowerCase();
+    if (search) filter.name = { $regex: search, $options: 'i' }; // case-insensitive search
 
     const products = await Product.find(filter);
-
-    res.status(200).json(products);
+    res.json(products);
   } catch (err) {
     res.status(500).json({ message: err.message });
   }
