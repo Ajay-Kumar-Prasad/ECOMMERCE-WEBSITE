@@ -52,7 +52,7 @@ export default function Product() {
     fetchProduct();
   }, [productId]);
   
-  if (loading) return <div className="text-center">Loading product...</div>;
+  if (loading) return <p>Loading..</p>;
   if (!product) return <div className="text-center text-danger">Product not found!</div>;
 
   // Breadcrumbs

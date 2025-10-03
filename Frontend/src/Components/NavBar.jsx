@@ -10,7 +10,7 @@ export default function NavBar() {
   const [search, setSearch] = useState("");
   const [results, setResults] = useState([]);
 
-  const { getTotalCartItem, cartProduct } = useContext(ShopContext);
+  const { getTotalItems } = useContext(ShopContext);
   const { user, logout } = useContext(AuthContext);
   const navigate = useNavigate();
 
@@ -165,7 +165,7 @@ export default function NavBar() {
               {/* Auth Buttons */}
               {user ? (
                 <>
-                  <i class="fa-solid fa-circle-user" style={{fontSize:"25px",fontWeight:"bold",color:"#064D75"}}></i> <p><a style={{fontSize:"small"}}>Welcome!</a><br /><span className="navbar-user">{user.name}</span></p>
+                  <i className="fa-solid fa-circle-user" style={{fontSize:"25px",fontWeight:"bold",color:"#064D75"}}></i> <p><a style={{fontSize:"small"}}>Welcome!</a><br /><span className="navbar-user">{user.name}</span></p>
                   <button className="btn btn-outline-danger" onClick={handleLogout}>
                     Sign Out
                   </button>
@@ -184,9 +184,9 @@ export default function NavBar() {
               {/* Cart Icon */}
               <Link to="/cart" className="nav-link cart-logo position-relative">
                 <i className="fa-solid fa-cart-shopping"></i>
-                {getTotalCartItem() > 0 && (
+                {getTotalItems() > 0 && (
                   <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-dark">
-                    {getTotalCartItem()}
+                    {getTotalItems()}
                   </span>
                 )}
               </Link>

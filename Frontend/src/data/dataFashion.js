@@ -10,7 +10,7 @@ let data_fashion = [
         name:"Women's Ethnic Set",
         image:"https://rukminim2.flixcart.com/image/400/400/xif0q/ethnic-set/a/s/i/m-s-f125-siyafabkurti-original-imah5tq5hdjgh8mq.jpeg?q=70",
         new_price:"Explore",
-        link:"/women/kurtis"
+        link:"/women/kurti"
     },{
         id:3,
         name:"Calling Smartwatches",

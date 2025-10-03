@@ -7,7 +7,7 @@ export default function Item(props){
             <div class="card-body">
                 <p class="card-txt">
                     <b>{props.name}</b><br />
-                    <p style={{color:"green"}}>{props.new_price.toLocaleString("en-IN")}</p>
+                    <p style={{color:"green"}}>₹{props.new_price.toLocaleString("en-IN")}</p>
                 </p>
             </div>
         </div>

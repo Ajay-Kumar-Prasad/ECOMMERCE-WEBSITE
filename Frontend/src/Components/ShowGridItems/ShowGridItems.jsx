@@ -1,18 +1,47 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "../../styles/ShowGridItems.css";
-export default function ShowGridItems(){
-    return (
-        <>
-        <div class="container text-center">
-            <div class="row g-3">
-                <div class="row-grid1 col-12 col-md-7"><Link to="/Men"><img src="https://img.paisawapas.com/ovz3vew9pw/2024/12/30160659/Blog-Banner-PW.jpg" alt="" /></Link></div>
-                <div class="col-10 col-md-4 d-flex flex-column gap-3">
-                    <div className="row-grid2"><Link to="/Women"><img src="https://cdn.maliparmi.filoblu.com/media/contentmanager/content/resized/767x/contentmanager/content/top%20banner_mobile%20(1).jpg" alt="" /></Link></div>
-                    <div className="row-grid3"><Link to="/ethnics"><img src="https://img.perniaspopupshop.com/HOMEPAGE_IMAGES/WOMEN/18_Jan_25/Mobile-EOSS-Sale-Lehengas-18-01-25.jpg" alt="" /></Link></div>
-                </div>
-            </div>
+
+export default function ShowGridItems() {
+  return (
+    <div className="container text-center my-4">
+      <div className="row g-3">
+        {/* Left big image */}
+        <div className="col-12 col-md-6">
+        <Link to="/Women">
+            <img
+              src="https://images.template.net/66535/Fashion-Multipurpose-Rollup-Banner-Template.jpeg"
+              alt="Women Banner"
+              className="img-fluid w-100"
+            />
+          </Link>
         </div>
-        </>
-    )
+
+        {/* Right column with two stacked images */}
+        <div className="col-12 col-md-6 d-flex flex-column gap-3">
+        <Link to="/Men">
+            <img
+              src="https://templates.simplified.co/thumb/3446e660-7af3-4ff6-86ce-755afcde8fcd.jpg"
+              alt="Men Banner"
+              className="img-fluid w-100 h-100 object-fit-cover"
+            />
+          </Link>
+          <Link to="/women/kurti">
+            <img
+              src="https://www.soch.com/media/wysiwyg/07_Main-Strip-Banner_Old-size-min.jpg"
+              alt="Ethnics Banner"
+              className="img-fluid w-100"
+            />
+          </Link>
+          <Link to="/kids">
+            <img
+              src="https://hulaglobal.com/wp-content/uploads/2025/03/Top-10-Kids-Clothing-Brands.webp"
+              alt="Kids Banner"
+              className="img-fluid w-100"
+            />
+          </Link>
+        </div>
+      </div>
+    </div>
+  );
 }

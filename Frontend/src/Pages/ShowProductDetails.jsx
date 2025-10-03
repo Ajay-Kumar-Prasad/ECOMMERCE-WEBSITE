@@ -1,18 +1,13 @@
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import "../styles/ShowProductDetails.css";
 import { ShopContext } from "../ContextAPI/ShopContext";
 import { Link } from "react-router-dom";
 
 export default function ShowProductDetails({ product, showSize }) {
-  const { addToCart } = useContext(ShopContext);
-  const [addedToCart, setAddedToCart] = useState(false);
+  const { addToCart, cartItems } = useContext(ShopContext);
 
-  const handleAddToCart = () => {
-    if (!addedToCart) {
-      addToCart(product.id);
-      setAddedToCart(true);
-    }
-  };
+  // Check if product already in cart
+  const productQuantity = cartItems[product._id] || 0;
 
   return (
     <div className="clearfix product-container">
@@ -33,25 +28,34 @@ export default function ShowProductDetails({ product, showSize }) {
           {product.rating}
         </p>
         <p>
-          <span className="new-price">₹{product.new_price.toLocaleString("en-IN")}</span>{" "}
-          <span className="old-price">₹{product.old_price.toLocaleString("en-IN")}</span>{" "}
-          <span className="discount">₹{product.discount} <b>inclusive of all taxes</b></span>
+          <span className="new-price">
+            ₹{product.new_price.toLocaleString("en-IN")}
+          </span>{" "}
+          <span className="old-price">
+            ₹{product.old_price.toLocaleString("en-IN")}
+          </span>{" "}
+          <span className="discount">
+            {product.discount} <b>inclusive of all taxes</b>
+          </span>
         </p>
         <h4>Description</h4>
         <p>{product.description}</p>
       </div>
 
       {/* Add to Cart */}
-      <button type="button" className="btn btn-addtocart" onClick={handleAddToCart}>
-        <i className="fa-solid fa-bag-shopping"></i>&nbsp;
-        {addedToCart ? (
-          <Link to="/cart" style={{ textDecoration: "none", color: "white" }}>
-            Go to Cart
-          </Link>
-        ) : (
-          "Add To Cart"
-        )}
-      </button>
+      {productQuantity > 0 ? (
+        <Link to="/cart" className="btn btn-addtocart">
+          <i className="fa-solid fa-bag-shopping"></i>&nbsp;Go to Cart ({productQuantity})
+        </Link>
+      ) : (
+        <button
+          type="button"
+          className="btn btn-addtocart"
+          onClick={() => addToCart(product._id)}
+        >
+          <i className="fa-solid fa-bag-shopping"></i>&nbsp;Add To Cart
+        </button>
+      )}
 
       {/* Wishlist Button */}
       &nbsp;&nbsp;
@@ -62,10 +66,17 @@ export default function ShowProductDetails({ product, showSize }) {
       {/* Sizes */}
       {showSize && product.hasSizes && (
         <>
-          <h6><br />&nbsp;&nbsp;&nbsp;&nbsp;SELECT SIZE</h6>
+          <h6>
+            <br />
+            &nbsp;&nbsp;&nbsp;&nbsp;SELECT SIZE
+          </h6>
           <div className="size-options">
             {["S", "M", "L", "XL", "XXL"].map((size) => (
-              <button key={size} type="button" className="btn btn-outline-secondary btn-size">
+              <button
+                key={size}
+                type="button"
+                className="btn btn-outline-secondary btn-size"
+              >
                 {size}
               </button>
             ))}

@@ -1,137 +1,166 @@
 import React, { useContext } from "react";
-import '../styles/CartItems.css';
+import "../styles/CartItems.css";
 import { ShopContext } from "../ContextAPI/ShopContext";
-export default function Cart(){
-    const {addToCart,getTotalCartOldPrice,getTotalCartPrice,cartProduct,cartItems,RemoveFromCart} = useContext(ShopContext);
-    return(
-        <>
-        <div class="container py-5">
-    <div class="row">
-        <div class="col-lg-8">
-            <div class="card mb-4">
-                <div class="card-body">
-                {cartProduct.length === 0 ? (
-                    <p>No Items in Cart</p>
-                ) : (
-                    cartProduct.map((e) => {
-                        if (cartItems[e.id] > 0) {
-                            return (
-                                <div key={e.id} class="row cart-item mb-3">
-                                    <div class="col-md-3">
-                                        <img src={e.image} alt="Product 1" class="img-fluid rounded" />
-                                    </div>
-                                    <div class="col-md-5">
-                                        <h6 class="card-title">{e.full_name}</h6>
-                                        <p class="text-muted">
-                                            <p style={{ textDecoration: "line-through" }}>
-                                                ₹{e.old_price.toLocaleString("en-IN")}
-                                            </p>
-                                            <p style={{ color: "green" }}>{e.discount}</p>
-                                        </p>
-                                    </div>
-                                    <div class="col-md-2">
-                                        <div class="input-group">
-                                            <button
-                                                class="btn btn-outline-secondary btn-sm"
-                                                type="button"
-                                                onClick={() => {
-                                                    RemoveFromCart(e.id);
-                                                }}
-                                            >
-                                                -
-                                            </button>
-                                            <input
-                                                style={{ maxWidth: "100px" }}
-                                                type="text"
-                                                class="form-control  form-control-sm text-center quantity-input"
-                                                value={cartItems[e.id]}
-                                            />
-                                            <button
-                                                class="btn btn-outline-secondary btn-sm"
-                                                type="button"
-                                                onClick={() => {
-                                                    addToCart(e.id);
-                                                }}
-                                            >
-                                                +
-                                            </button>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-2 text-end">
-                                        <p class="fw-bold">
-                                            <a style={{ color: "#ff415a" }}>
-                                                ₹{(e.new_price * cartItems[e.id]).toLocaleString("en-IN")}{" "}
-                                            </a>
-                                        </p>
-                                        <button
-                                            class="btn btn-sm btn-outline-danger"
-                                            onClick={() => {
-                                                RemoveFromCart(e.id);
-                                            }}
-                                        >
-                                            <i class="fa-solid fa-trash-can"></i>
-                                        </button>
-                                    </div>
-                                </div>
-                            );
-                        }
-                        return null;
-                    })
-                )}
-                </div>
+
+export default function Cart() {
+  const {
+    products,
+    cartItems,
+    addToCart,
+    removeFromCart,
+    getTotalPrice,
+    getTotalOldPrice,
+  } = useContext(ShopContext);
+
+  // Get array of products in cart
+  const cartProductList = Object.keys(cartItems)
+  .filter((id) => cartItems[id] > 0)
+  .map((id) => products.find((p) => p._id === id)) 
+  .filter(Boolean); // remove undefined
+  return (
+    <div className="container py-5">
+      <div className="row">
+        {/* Left: Cart Items */}
+        <div className="col-lg-8">
+          <div className="card mb-4">
+            <div className="card-body cart-product">
+              {cartProductList.length === 0 ? (
+                <p style={{ color: "green" }}>Your cart is empty!</p>
+              ) : (
+                cartProductList.map((product) => (
+                  <div
+                    key={product._id}
+                    className="d-flex flex-row flex-md-row align-items-center mb-3 cart-item"
+                  >
+                    {/* Product Image */}
+                    <div className="me-md-3 mb-2 mb-md-0">
+                      <img
+                        src={product.image}
+                        alt={product.full_name}
+                        className="img-fluid rounded"
+                        style={{ width: "120px", height: "120px", objectFit: "cover" }}
+                      />
+                    </div>
+
+                    {/* Product Details */}
+                    <div className="flex-grow-1 d-flex flex-column justify-content-between">
+                      <div className="product-details">
+                        <h6>{product.full_name}</h6>
+                        <p style={{ textDecoration: "line-through" }}>
+                          ₹{product.old_price.toLocaleString("en-IN")}
+                        </p>
+                        <div className="d-flex align-items-center mt-2">
+                          <p style={{ color: "green",fontWeight:"bold" }}>{product.discount}</p>
+                          <div className="ms-auto fw-bold">
+                            {/* Delete Button */}
+                            <i className="fa-solid fa-trash" onClick={() => removeFromCart(product._id, true)} style={{ color: "#fe424d" }}></i>
+                          </div>
+                        </div>
+                        {/* Quantity Controls */}
+                        <div className="d-flex align-items-center mt-2 quant-control">
+                          <button
+                            className="btn btn-outline-secondary btn-sm me-2"
+                            onClick={() => removeFromCart(product._id)}
+                          >
+                            -
+                          </button>
+                          <input
+                            type="text"
+                            className="form-control form-control-sm text-center me-2"
+                            value={cartItems[product._id]}
+                            readOnly
+                            style={{height:"0.8rem", width: "2rem" }}
+                          />
+                          <button
+                            className="btn btn-outline-secondary btn-sm"
+                            onClick={() => addToCart(product._id)}
+                          >
+                            +
+                          </button>
+                          <div className="ms-auto fw-bold">
+                            ₹{(product.new_price * cartItems[product._id]).toLocaleString("en-IN")}
+                          </div>
+                        </div>
+                        </div>
+                      </div>
+                  </div>
+                ))
+              )}
             </div>
-            <a href="/" class="btn btn-pink-outline" style={{color:"#fe424d",borderColor:"#fe424d"}} 
-                onMouseEnter={(e) => {  
-                    e.target.style.backgroundColor = "#fe424d"; 
-                    e.target.style.color = "white";
-                }}
-                onMouseLeave={(e) => {
-                    e.target.style.backgroundColor = "white";
-                    e.target.style.color = "#fe424d";
-                }}>
-                Continue Shopping
-            </a>
+          </div>
+
+
+          {/* Continue Shopping Button */}
+          <a
+            href="/"
+            className="btn btn-pink-outline"
+            style={{ color: "#fe424d", borderColor: "#fe424d" }}
+            onMouseEnter={(e) => {
+              e.target.style.backgroundColor = "#fe424d";
+              e.target.style.color = "white";
+            }}
+            onMouseLeave={(e) => {
+              e.target.style.backgroundColor = "white";
+              e.target.style.color = "#fe424d";
+            }}
+          >
+            Continue Shopping
+          </a>
         </div>
-        <div class="col-lg-4">
-            <div class="card cart-summary">
-                <div class="card-body">
-                    <h5 class="card-title mb-4">Order Summary</h5>
-                    <div class="d-flex justify-content-between mb-3">
-                        <span>Sutotal</span>
-                        <span>₹{getTotalCartOldPrice().toLocaleString("en-IN")}</span>
-                    </div>
-                    <div class="d-flex justify-content-between mb-3">
-                        <span>Shipping</span>
-                        <span>Free</span>
-                    </div>
-                    <div class="d-flex justify-content-between mb-3">
-                        <span>Tax</span>
-                        <span>₹20.00 GST</span>
-                    </div>
-                    <div class="d-flex justify-content-between mb-3">
-                        <span>Discount</span>
-                        <span>₹{(getTotalCartOldPrice()-getTotalCartPrice()).toLocaleString("en-IN")}</span>
-                    </div>
-                    <hr/>
-                    <div class="d-flex justify-content-between mb-4">
-                        <strong>Total</strong>
-                        <strong>₹{getTotalCartPrice().toLocaleString("en-IN")}</strong>
-                    </div>
-                    <button class="btn w-100" style={{color:"white",backgroundColor: "#fe424d"}}>Proceed to Checkout</button>
-                </div>
+
+        {/* Right: Summary */}
+        <div className="col-lg-4">
+          <div className="card cart-summary">
+            <div className="card-body">
+              <h5 className="card-title mb-4">Order Summary</h5>
+              <div className="d-flex justify-content-between mb-3">
+                <span>Subtotal</span>
+                <span>₹{getTotalOldPrice().toLocaleString("en-IN")}</span>
+              </div>
+              <div className="d-flex justify-content-between mb-3">
+                <span>Shipping</span>
+                <span style={{color:"green"}}>Free</span>
+              </div>
+              <div className="d-flex justify-content-between mb-3">
+                <span>Tax</span>
+                <span>₹20.00 GST</span>
+              </div>
+              <div className="d-flex justify-content-between mb-3">
+                <span >Discount</span>
+                <span style={{color:"green"}}>
+                  ₹{(getTotalOldPrice() - getTotalPrice()).toLocaleString("en-IN")}
+                </span>
+              </div>
+              <hr />
+              <div className="d-flex justify-content-between mb-4">
+                <strong>Total</strong>
+                <strong>₹{getTotalPrice().toLocaleString("en-IN")}</strong>
+              </div>
+              <button
+                className="btn w-100"
+                style={{ color: "white", backgroundColor: "#fe424d" }}
+              >
+                Proceed to Checkout
+              </button>
             </div>
-            <div class="card mt-4">
-                <div class="card-body">
-                    <h5 class="card-title mb-3">Apply Promo Code&nbsp;&nbsp;<i class="fa-solid fa-tag"></i></h5>
-                    <div class="input-group mb-3">
-                        <input type="text" class="form-control" placeholder="Enter promo code"/>
-                        <button class="btn btn-outline-secondary" type="button">Apply</button>
-                    </div>
-                </div>
+          </div>
+
+          {/* Promo Code */}
+          <div className="card mt-4">
+            <div className="card-body">
+              <h5 className="card-title mb-3">
+                Apply Promo Code&nbsp;&nbsp;<i className="fa-solid fa-tag"></i>
+              </h5>
+              <div className="input-group mb-3">
+                <input type="text" className="form-control" placeholder="Enter promo code" />
+                <button className="btn btn-outline-secondary" type="button">
+                  Apply
+                </button>
+              </div>
             </div>
+          </div>
         </div>
+      </div>
     </div>
-</div>
-        </>
-    )    
+  );
 }

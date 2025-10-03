@@ -3,6 +3,7 @@
     width: 12rem !important;
 }
 .card-image{
+    margin-left: 1.5rem !important;
     object-fit: cover;
     height: 12rem !important;
     width: 10rem !important;
@@ -32,3 +33,5 @@
     display: flex;
     justify-content: center;
 }
+
+  

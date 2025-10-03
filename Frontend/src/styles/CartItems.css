@@ -1,3 +1,6 @@
+.cart-item{
+    display: flex;
+}
 .cart-item img {
     object-fit: cover;
     max-width: 100px;
@@ -5,17 +8,22 @@
 }
 
 .quantity-input {
-    width: 50px;
+    max-width: 10rem;
+    min-width: 4rem;
 }
-
 .cart-summary {
     background-color: #f8f9fa;
     border-radius: 10px;
 }
-
-  
 .btn-pink-outline:hover {
     background-color: #fe424d;  
     color: white;              
 }
+.quant-control button{
+    height: 1.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
   

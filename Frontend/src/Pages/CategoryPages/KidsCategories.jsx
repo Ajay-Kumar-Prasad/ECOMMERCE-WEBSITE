@@ -4,6 +4,7 @@ import '../../styles/Categories.css';
 import CategoryItem from "../../Components/Items/CategoryItems";
 import defaultImg from '../../assets/Images/image.png';
 import KIDS_BANNER from '../../constants/KIDS_BANNER.png';
+import assets from '../../constants/Banners';
 import axios from "axios";
 
 export default function KidsCategories() {
@@ -13,15 +14,6 @@ export default function KidsCategories() {
   const [loading, setLoading] = useState(true);
 
   const category = "kids";
-
-  const subcategoryImages = {
-    tshirts: "https://knitroot.com/wp-content/uploads/2023/05/20.png",
-    shorts: "https://m.media-amazon.com/images/I/71sRFRR6BKL._UY1100_.jpg",
-    shoes: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQynK_X9lRguDKHa1y_CTLG3eZi2i5Qb6_FeA&s",
-    caps: "https://www.tinyminymo.com/cdn/shop/files/Kids-Cool-3D-Cap-4_1200x1200.jpg?v=1741539809",
-    dresses: "https://assets.myntassets.com/dpr_1.5,q_30,w_400,c_limit,fl_progressive/assets/images/29524964/2024/5/14/28f21d13-9753-4337-b032-e41403e6eb3e1715663385068BAESDFloralFlutterSleeveNetFitFlareDress1.jpg"
-  };
-
   const fallback = (e) => { e.target.src = defaultImg; };
 
   useEffect(() => {
@@ -54,10 +46,10 @@ export default function KidsCategories() {
 
       {/* Subcategory Cards */}
       <div className="list-category row row-cols-lg-6 row-cols-md-3 row-cols-sm-1">
-        {Object.keys(subcategoryImages).map((subcat) => (
+        {Object.keys(assets.subcategoryImages).map((subcat) => (
           <div className="card card-product-list" key={subcat}>
             <Link to={`/kids/${subcat}`}>
-              <img src={subcategoryImages[subcat]} alt={subcat} onError={fallback} />
+              <img src={assets.subcategoryImages[subcat]} alt={subcat} onError={fallback} />
             </Link>
             <div className="card-body">
               <p className="card-text card-category">{subcat.charAt(0).toUpperCase() + subcat.slice(1)}</p>
@@ -68,11 +60,11 @@ export default function KidsCategories() {
 
       {/* Products List */}
       <div className="SortByProducts">
-        <h3>Showing {products.length} results</h3>
+        {products.length===0? ( <h4>No products found!</h4>):(<h3>Showing {products.length} results</h3>)}
       </div>
       <div className="list-category row row-cols-lg-6 row-cols-md-3 row-cols-sm-1">
         {loading ? (
-          <p>Loading...</p>
+          <p>Loading..</p>
         ) : products.length === 0 ? (
           <p style={{color:"red"}}>No products found!</p>
         ) : (

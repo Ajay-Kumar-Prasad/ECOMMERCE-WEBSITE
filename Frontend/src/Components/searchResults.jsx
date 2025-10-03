@@ -31,7 +31,7 @@ export default function SearchResults() {
     fetchResults();
   }, [q]);
 
-  if (loading) return <p>Loading...</p>;
+  if (loading) return <p>Loading..</p>;
 
   return (
     <div className="container mt-4">
