@@ -14,6 +14,14 @@ export default function Cart() {
 
   // Get all products that are in the cart
   const cartProductList = products.filter((p) => cartItems[p._id] > 0);
+
+  const handleCheckout = () => {
+    if(cartProductList.length === 0){
+      alert("Your cart is empty!");
+      return;
+    }
+    alert("Proceeding to checkout...");
+  }
   
   return (
     <div className="container py-5">
@@ -137,6 +145,7 @@ export default function Cart() {
               <button
                 className="btn w-100"
                 style={{ color: "white", backgroundColor: "#fe424d" }}
+                onClick={handleCheckout}
               >
                 Proceed to Checkout
               </button>

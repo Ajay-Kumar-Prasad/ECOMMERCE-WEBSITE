@@ -1,0 +1,73 @@
+.category-banner{
+    width: 100%;
+    height: auto;
+    max-height: 470px;
+    object-fit: cover;
+}
+.item-sort {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 15px 0;
+    font-family: Arial, sans-serif;
+  }
+  
+  .item-sort {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin: 15px 0;
+    font-family: Arial, sans-serif;
+  }
+  
+  /* heading */
+  .item-sort h5 {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 600;
+    color: #333;
+  }
+  
+  /* wrapper to position arrow */
+  .item-sort .select-wrap {
+    position: relative;
+    min-width: 200px; 
+  }
+  
+  /* white select with subtle shadow and custom arrow */
+  .item-sort .sort-select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    width: 100%;
+    padding: 8px 36px 8px 12px;
+    border: 1px solid #ddd !important;
+    border-radius: 6px;
+    background-color: #ffffff !important;
+    color: #333 !important;
+    font-size: 14px;
+    cursor: pointer;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+    transition: border-color .15s ease, box-shadow .15s ease;
+    outline: none;
+  }
+  
+  .item-sort .select-wrap::after {
+    content: "";
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 12px;
+    height: 12px;
+    pointer-events: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23333'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-size: 12px;
+  }
+  
+  /* Fallback for very old browsers / mobile where appearance cannot be removed:
+     Use a stronger rule if something else overrides it */
+  .item-sort .sort-select {
+    background-clip: padding-box;
+  }
