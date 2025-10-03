@@ -32,6 +32,9 @@ const authRoutes = require("./routes/authRoute");
 app.use("/api/products", productRoutes);
 app.use("/api/auth", authRoutes);
 
+const adminRoutes = require("./routes/adminRoute");
+app.use("/api/admin", adminRoutes);
+
 // Test route
 app.get("/", (req, res) => res.send("🚀 Backend is running!"));
 

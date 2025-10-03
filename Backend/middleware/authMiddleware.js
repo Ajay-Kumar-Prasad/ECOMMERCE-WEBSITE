@@ -12,13 +12,28 @@ const protect = async (req, res, next) => {
       token = req.headers.authorization.split(" ")[1];
       const decoded = jwt.verify(token, process.env.JWT_SECRET);
       req.user = await User.findById(decoded.id).select("-password");
+
+      // Admin check
+      if (!req.user.isAdmin) {
+        return res.status(401).json({ message: "Not authorized as admin" });
+      }
+
       next();
     } catch (error) {
+      console.error(error);
       res.status(401).json({ message: "Not authorized, token failed" });
     }
   } else {
     res.status(401).json({ message: "Not authorized, no token" });
   }
 };
+const admin = (req, res, next) => {
+  if (req.user && req.user.isAdmin) {
+    next();
+  } else {
+    res.status(403).json({ message: "You are not authorized to view this page" });
+  }
+};
 
-module.exports = { protect };
+
+module.exports = { protect, admin };

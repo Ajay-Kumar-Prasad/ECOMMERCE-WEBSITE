@@ -8,7 +8,8 @@ import Footer from "./Components/Footer.jsx";
 import SearchResults from "./Components/searchResults.jsx";
 
 // Pages
-import Home from "./Pages/Home.jsx";   
+import Home from "./Pages/Home.jsx";  
+import AdminPage from "./Pages/AdminPage.jsx"; 
 import Cart from "./Pages/Cart.jsx";
 import Checkout from "./Pages/Checkout.jsx";
 import Orders from "./Pages/Orders.jsx";
@@ -33,6 +34,7 @@ function App() {
         <Routes>
           {/* Landing / Home */}
           <Route path="/" element={<Home />} />
+          <Route path="/admin" element={<AdminPage />} />
           <Route path="/search" element={<SearchResults />} />
 
           {/* Dynamic category/subcategory listing */}
