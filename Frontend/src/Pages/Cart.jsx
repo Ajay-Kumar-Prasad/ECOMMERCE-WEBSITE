@@ -12,11 +12,9 @@ export default function Cart() {
     getTotalOldPrice,
   } = useContext(ShopContext);
 
-  // Get array of products in cart
-  const cartProductList = Object.keys(cartItems)
-  .filter((id) => cartItems[id] > 0)
-  .map((id) => products.find((p) => p._id === id)) 
-  .filter(Boolean); // remove undefined
+  // Get all products that are in the cart
+  const cartProductList = products.filter((p) => cartItems[p._id] > 0);
+  
   return (
     <div className="container py-5">
       <div className="row">

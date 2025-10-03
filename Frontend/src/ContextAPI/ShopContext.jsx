@@ -6,7 +6,10 @@ export const ShopContext = createContext(null);
 
 const ShopContextProvider = ({ children }) => {
   const [products, setProducts] = useState([]); // products from backend
-  const [cartItems, setCartItems] = useState({}); // cart with { productId: quantity }
+  const [cartItems, setCartItems] = useState(() => {
+    const savedCart = localStorage.getItem("cart");
+    return savedCart ? JSON.parse(savedCart) : {};
+  });
 
   // Fetch products from backend API
   useEffect(() => {
@@ -14,16 +17,24 @@ const ShopContextProvider = ({ children }) => {
       try {
         const res = await axios.get("http://localhost:8080/api/products");
         setProducts(res.data);
-        // Initialize cart
+
+        // Optionally, initialize cart for products not in localStorage
         const defaultCart = {};
-        (res.data || []).forEach(p => defaultCart[p._id] = 0);
-        setCartItems(defaultCart);
+        res.data.forEach(p => {
+          if (!cartItems[p._id]) defaultCart[p._id] = 0;
+        });
+        setCartItems(prev => ({ ...defaultCart, ...prev }));
       } catch (err) {
         console.error("Error fetching products:", err);
       }
     };
     fetchProducts();
   }, []);
+
+  // Save cart to localStorage whenever it changes
+  useEffect(() => {
+    localStorage.setItem("cart", JSON.stringify(cartItems));
+  }, [cartItems]);
 
   // Add item to cart
   const addToCart = (productId) => {
