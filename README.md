@@ -89,7 +89,7 @@ ecommerce-mern/
 ## ⚙️ Installation & Setup
 ```bash
 # Clone the repo
-git clone https://github.com/<your-username>/<repo-name>.git
+git clone https://github.com/Ajay-Kumar-Prasad/ECOMMERCE-WEBSITE.git
 
 # Install backend dependencies
 cd backend
