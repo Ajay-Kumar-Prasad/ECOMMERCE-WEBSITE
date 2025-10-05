@@ -144,7 +144,7 @@ This project is licensed under the MIT License.
 # 👨‍💻 Author
 
 Ajay Kumar Prasad
-2nd-year B.Tech CSE @ NIT Andhra Pradesh
+3rd-year B.Tech CSE @ NIT Andhra Pradesh
 🌐 GitHub
  • 💼 LinkedIn
 
