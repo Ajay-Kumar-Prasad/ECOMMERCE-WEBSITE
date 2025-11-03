@@ -23,7 +23,7 @@ This project started as a frontend-only application during my internship and has
 | **Authentication** | JWT (JSON Web Token) |
 | **State Management** | Context API |
 | **Payment Gateway (Upcoming)** | Stripe / Razorpay |
-| **Hosting (Planned)** | Render / Vercel / Railway |
+| **Hosting (Planned)** | Render |
 
 ---
 
@@ -145,7 +145,7 @@ This project is licensed under the MIT License.
 
 Ajay Kumar Prasad
 3rd-year B.Tech CSE @ NIT Andhra Pradesh
-🌐 GitHub
+🌐 GitHub 
  • 💼 LinkedIn
 
 ⭐ If you like this project, don't forget to star the repo! ⭐
