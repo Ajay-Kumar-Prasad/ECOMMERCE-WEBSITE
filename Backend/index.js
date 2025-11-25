@@ -9,10 +9,7 @@ const port = process.env.PORT || 8080;
 // Middleware
 app.use(express.json());
 app.use(cors({
-    origin: [
-        "http://localhost:3000",
-        "https://ecommerce-website-frontend-4ec2.onrender.com"
-    ],
+    origin: process.env.CLIENT_URL,
     methods: ["GET", "POST", "PUT", "DELETE"],
     credentials: true
 }));
