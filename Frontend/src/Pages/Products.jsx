@@ -24,12 +24,12 @@ export default function Product() {
         setLoading(true);
   
         // Fetch the main product
-        const res = await axios.get(`http://localhost:8080/api/products/${productId}`);
+        const res = await axios.get(`${process.env.REACT_APP_API_URL}/api/products/${productId}`);
         setProduct(res.data);
   
         // Fetch all products of the same category
         const relatedRes = await axios.get(
-          `http://localhost:8080/api/products?category=${res.data.category}`
+          `${process.env.REACT_APP_API_URL}/api/products?category=${res.data.category}`
         );
   
         // Filter by exact subcategory and exclude current product

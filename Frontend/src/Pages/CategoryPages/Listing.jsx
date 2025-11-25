@@ -21,7 +21,7 @@ export default function Listing() {
     const fetchProducts = async () => {
       setLoading(true);
       try {
-        let url = `http://localhost:8080/api/products?category=${category}`;
+        let url = `${process.env.REACT_APP_API_URL}/api/products?category=${category}`;
         if (subcategory) url += `&subcategory=${subcategory}`;
         const res = await axios.get(url);
         const filteredProducts = res.data.filter(

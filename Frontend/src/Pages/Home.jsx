@@ -12,7 +12,7 @@ export default function Home(){
         const fetchProducts = async () => {
           try {
             // Fetch all smartphones
-            const res = await axios.get("http://localhost:8080/api/products?category=smartphones");
+            const res = await axios.get(`${process.env.REACT_APP_API_URL}/api/products?category=smartphones`);
             const smartProducts = res.data.filter(
                 (prod) => prod.category.toLowerCase() === "smartphones"
               );

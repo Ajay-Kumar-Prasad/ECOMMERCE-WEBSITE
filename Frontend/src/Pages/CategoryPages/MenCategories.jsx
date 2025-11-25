@@ -19,7 +19,7 @@ export default function MenCategories() {
     const fetchProducts = async () => {
       setLoading(true);
       try {
-        let url = `http://localhost:8080/api/products?category=men`;
+        let url = `${process.env.REACT_APP_API_URL}/api/products?category=men`;
         if (subcategory) url += `&subcategory=${subcategory}`;
         const res = await axios.get(url);
         const menProducts = res.data.filter(

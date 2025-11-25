@@ -24,7 +24,7 @@ export default function AdminPage(){
     }, []);
     // GET
     const fetchProducts = async () => {
-        const res = await axios.get("http://localhost:8080/api/products", config);
+        const res = await axios.get(`${process.env.REACT_APP_API_URL}/api/products`, config);
         setProducts(res.data);
     };
 
@@ -40,18 +40,18 @@ export default function AdminPage(){
             old_price: form.old_price ? Number(form.old_price) : 0,
             rating: form.rating ? Number(form.rating) : 0
         };
-        await axios.post("http://localhost:8080/api/products", payload, config);
+        await axios.post(`${process.env.REACT_APP_API_URL}/api/products`, payload, config);
         setForm({ full_name: "", brand_name:"", description:"", new_price: "", old_price: "", category: "", subcategory: "", image: "", discount: "", rating: "" });
         fetchProducts();
     };
     // DELETE
     const deleteProduct = async (id) => {
-        await axios.delete(`http://localhost:8080/api/products/${id}`, config);
+        await axios.delete(`${process.env.REACT_APP_API_URL}/api/products/${id}`, config);
         fetchProducts();
     };
     // PUT
     const updateProduct = async (id, updated) => {
-        await axios.put(`http://localhost:8080/api/products/${id}`, updated, config);
+        await axios.put(`${process.env.REACT_APP_API_URL}/api/products/${id}`, updated, config);
         fetchProducts();
     };
 
